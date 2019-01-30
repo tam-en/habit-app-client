@@ -20,11 +20,33 @@ class App extends Component {
 
   componentDidMount = () => {
     // GET USER INFO
+    this.getUser();
   }
 
   getUser = () => {
-    // TODO: SEE IF THERE'S A TOKEN
+    // SEE IF THERE'S A TOKEN
+    let token = localStorage.getItem('serverToken');
     // IF THERE IS, TRY TO GET USER INFO
+    if(token){
+      console.log('found token in local storage:', token);
+      axios.post(`${SERVER_URL}/auth/current/user`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      })
+      .then(response => {
+        console.log('Success!');
+        this.setState({
+          user: response.data.user
+        })
+      })
+      .catch(err => {
+        console.log('Error looking up user by token. Error=', err, err.response);
+        this.setState({ user: null });
+      })
+    }
+    else {
+      console.log('no token in local storage');
+      this.setState({ user: null });
+    }
   }
 
   render() {
@@ -32,13 +54,13 @@ class App extends Component {
       <div className="App">
         <Router>
           <div className="container">
-            <Nav user={this.state.user} />
+            <Nav user={this.state.user} updateUser={this.getUser} />
             <Route exact path="/" component={Home} />
             <Route path="/login" component={
-              () => (<Login user={this.state.user} />)
+              () => (<Login user={this.state.user} updateUser={this.getUser} />)
             } />
             <Route path="/signup" component={
-              () => (<Signup user={this.state.user} />)
+              () => (<Signup user={this.state.user} updateUser={this.getUser} />)
             } />
             <Route path="/profile" component={
               () => (<Profile user={this.state.user} />)

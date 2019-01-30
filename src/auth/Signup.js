@@ -21,10 +21,23 @@ class Signup extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: SEND DATA TO SERVER
+    console.log('in submit function, state is:', this.state);
+    // SEND DATA TO SERVER
+    axios.post(`${SERVER_URL}/auth/signup`, this.state)
+    .then(response => {
+      console.log('SUCCESS', response);
+      // assume we have a token that we should save to local storage
+      localStorage.setItem('serverToken', response.data.token);
+      // need to update the state of react somehow . . . from not logged in to logged in
+      this.props.updateUser();
+    })
+    .catch(err => {
+      console.log('ERROR when submitting signup form', err);
+    })
   }
 
   render() {
+    //console.log('updateUser:', this.props.updateUser)
     if(this.props.user){
       return (<Redirect to="/profile" />);
     }
