@@ -1,1 +1,1 @@
-export default 'http://localhost:3000';
+export default 'https://habits-track-server.herokuapp.com/';
