@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Home extends Component {
   render() {
     return(
-        <p>This is a home page. You should probably write something here.</p>
+        <p>Welcome to your daily habit tracker app! Created by Tamis, Q, and Brad.</p>
       );
   }
 }

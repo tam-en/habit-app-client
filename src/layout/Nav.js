@@ -16,7 +16,7 @@ class Nav extends Component {
       links = (
           <span>
             <a onClick={this.handleLogout}>Logout</a>
-            <Link to="/profile">Profile</Link>
+            <Link to="/dashboard">Dashboard</Link>
           </span>
         );
     }
