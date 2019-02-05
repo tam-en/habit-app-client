@@ -39,7 +39,7 @@ class Signup extends Component {
   render() {
     //console.log('updateUser:', this.props.updateUser)
     if(this.props.user){
-      return (<Redirect to="/profile" />);
+      return (<Redirect to="/dashboard" />);
     }
     return(
         <div>

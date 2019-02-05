@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 
-class Profile extends Component {
+class Dashboard extends Component {
   render() {
     if(this.props.user){
       return (
           <div>
-            <h2>Hello again, {this.props.user.name}!</h2>
-            <h4>Your email is {this.props.user.email}</h4>
+            <h2>{this.props.user.name}'s Habit Dashboard</h2>
+            <h4>Render the HabitList Component here</h4>
           </div>
         );
     }
     return(
       <div>
-        <p>This is a profile page. You must be logged in to see it.</p>
+        <p>This is a dashboard page. You must be logged in to see it.</p>
         <p>Would you like to <a href="/login">Log In</a> or <a href="/signup">Sign up</a>?</p>
       </div>
       );
   }
 }
 
-export default Profile;
+export default Dashboard;

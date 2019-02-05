@@ -7,7 +7,7 @@ import Footer from './layout/Footer';
 import Home from './Home';
 import Login from './auth/Login';
 import Nav from './layout/Nav';
-import Profile from './Profile';
+import Dashboard from './Dashboard';
 import Signup from './auth/Signup';
 
 class App extends Component {
@@ -62,8 +62,8 @@ class App extends Component {
             <Route path="/signup" component={
               () => (<Signup user={this.state.user} updateUser={this.getUser} />)
             } />
-            <Route path="/profile" component={
-              () => (<Profile user={this.state.user} />)
+            <Route path="/dashboard" component={
+              () => (<Dashboard user={this.state.user} />)
             } />
           </div>
         </Router>
