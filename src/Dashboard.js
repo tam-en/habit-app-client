@@ -7,7 +7,7 @@ class Dashboard extends Component {
     if(this.props.user){
       return (
           <div>
-            <h2>{this.props.user.name}'s Habit Dashboard</h2>
+            <h2>{this.props.user.username}'s Habit Dashboard</h2>
             <HabitList user={this.props.user} habits={this.props.habits} />
             <NewHabitForm user={this.props.user} />
           </div>
