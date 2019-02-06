@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Habit from './Habit';
 
 class HabitList extends Component {
   render() {
@@ -6,7 +7,6 @@ class HabitList extends Component {
       return (
           <div>
             <p>Use map iterator to create a div of each of the user's habits. Also pass down props to the Habit Component</p>
-            
           </div>
         );
     }
