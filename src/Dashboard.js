@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import HabitList from './HabitList';
+import NewHabitForm from './NewHabitForm';
 
 class Dashboard extends Component {
   render() {
@@ -6,7 +8,8 @@ class Dashboard extends Component {
       return (
           <div>
             <h2>{this.props.user.name}'s Habit Dashboard</h2>
-            <h4>Render the HabitList Component here</h4>
+            <HabitList user={this.props.user} habits={this.props.habits} />
+            <NewHabitForm user={this.props.user} />
           </div>
         );
     }

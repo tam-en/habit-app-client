@@ -5,7 +5,7 @@ class Habit extends Component {
     if(this.props.user){
       return (
           <div>
-            <h2>{this.props.habit.name}</h2>
+            <h2>This is a habit!</h2>
             
           </div>
         );
