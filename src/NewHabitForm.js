@@ -8,16 +8,27 @@ class NewHabitForm extends Component {
 	constructor(props){
 		super(props)
 		this.state = {
-			user: props.user
+			name: "",
+			timesPerDay: 0,
+			description: "",
+			days: [],
+			user: props.user._id
 		}
 	}
 
+	storeInput = (e) => {
+		this.setState({
+			[e.target.name]: e.target.value
+		})
+	}
+
 	newHabit = (e) => {
+		console.log("THIS.STATE UPON FORM SUBMIT", this.state)
 		e.preventDefault()
 		// console.log(this.state)
-		fetch(SERVER_URL+'/'+this.state.user.id, {
+		fetch(SERVER_URL+'/habits/'+this.state.user.id, {
 			method: 'POST',
-			body: JSON.stringify(this.state ), // data to send to server
+			body: JSON.stringify(this.state), // data to send to server
 			headers: {
 				'Content-Type': 'application/json' // let the server know what's coming
 			}
@@ -39,17 +50,17 @@ class NewHabitForm extends Component {
 				<form onSubmit={this.newHabit} >
 				<div>
 					<label>Name</label>
-					<input type="text" placeholder="What's the name of your new daily habit?" />
+					<input type="text" placeholder="What's the name of your new daily habit?" onChange={this.storeInput} value={this.state.name} />
 				</div>
 				<div>
 					<label>Times Per Day Goal</label>
-					<input name="timesPerDay" type="number" min="1" max="100" step="1" placeholder="How many times per day would be ideal?" />
+					<input name="timesPerDay" type="number" min="1" max="100" step="1" placeholder="How many times per day would be ideal?" 
+					onChange={this.storeInput} value={this.state.timesPerDay} />
 				</div>
 				<div>
 					<label>Description</label>
-					<input type="text" />
+					<input type="text" onChange={this.storeInput} value={this.state.description} />
 				</div>
-				<input type="hidden" name="user" value={this.state.user.name} />
 				<input type="submit" value="Add New Habit" />
 				</form>
 			</div>
