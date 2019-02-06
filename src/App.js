@@ -65,9 +65,6 @@ class App extends Component {
   };
 
   render() {
-
-    console.log("USER PROPS FROM APP.JS", this.state.user)
-
     return (
       <div className="App">
         <Router>

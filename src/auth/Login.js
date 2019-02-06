@@ -29,7 +29,7 @@ class Login extends Component {
       this.props.updateUser();
     })
     .catch(err => {
-      console.log('TODO: make error page for user', err.response.data);
+      console.log('TODO: make error page for user', err);
     })
   }
 
