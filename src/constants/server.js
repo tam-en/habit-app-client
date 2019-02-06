@@ -1,1 +1,1 @@
-export default 'https://habits-track-server.herokuapp.com/';
+export default 'https://habits-track-server.herokuapp.com';
