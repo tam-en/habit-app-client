@@ -49,6 +49,21 @@ class App extends Component {
     }
   }
 
+  getHabits = () => {
+     fetch(SERVER_URL)
+    .then(response=> {
+      // fetch returns a fetch object, not JUST the data
+      return response.json() // extract json from fetch object
+    })
+    .then(json => {
+      console.log(json)
+      this.setState({ habits: json })
+    })
+    .catch(err=>{
+      console.log("Error fetching habits!", err)
+    })   
+  };
+
   render() {
     return (
       <div className="App">
