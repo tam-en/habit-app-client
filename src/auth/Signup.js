@@ -21,7 +21,7 @@ class Signup extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('in submit function, state is:', this.state);
+    console.log('in submit function, state is:', this.state, SERVER_URL);
     // SEND DATA TO SERVER
     axios.post(`${SERVER_URL}/auth/signup`, this.state)
     .then(response => {
