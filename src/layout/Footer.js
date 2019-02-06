@@ -6,7 +6,7 @@ class Footer extends Component {
         <div>
           <footer className="footer">
             <span className="footer-text">
-              Created by Tamis Nordling &copy; {new Date().getFullYear()}
+              Created by Quiwaan Little, Brad McKnight, and Tamis Nordling &copy; {new Date().getFullYear()}
             </span>
           </footer>
         </div>
