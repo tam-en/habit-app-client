@@ -5,6 +5,13 @@ import SERVER_URL from './constants/server';
 
 class NewHabitForm extends Component {
 
+	constructor(){
+		super()
+		this.state = {
+			user: this.props.user
+		}
+	}
+
 	newHabit = (e) => {
 		e.preventDefault()
 		// console.log(this.state)
@@ -36,12 +43,13 @@ class NewHabitForm extends Component {
 				</div>
 				<div>
 					<label>Times Per Day Goal</label>
-					<input type="number" min="1" max="100" step="1" placeholder="How many times a per day would be ideal?" />
+					<input name="timesPerDay" type="number" min="1" max="100" step="1" placeholder="How many times per day would be ideal?" />
 				</div>
 				<div>
 					<label>Description</label>
 					<input type="text" />
 				</div>
+				<input type="hidden" name="user" value={this.state.user.name} />
 				<input type="submit" value="Add New Habit" />
 				</form>
 			</div>
