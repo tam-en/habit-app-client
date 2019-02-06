@@ -50,7 +50,7 @@ class NewHabitForm extends Component {
 				<form onSubmit={this.newHabit} >
 				<div>
 					<label>Name</label>
-					<input type="text" placeholder="What's the name of your new daily habit?" onChange={this.storeInput} value={this.state.name} />
+					<input type="text" placeholder="What's the name of your new daily habit?" name="name" onChange={this.storeInput} value={this.state.name} />
 				</div>
 				<div>
 					<label>Times Per Day Goal</label>
@@ -59,7 +59,7 @@ class NewHabitForm extends Component {
 				</div>
 				<div>
 					<label>Description</label>
-					<input type="text" onChange={this.storeInput} value={this.state.description} />
+					<input name="description" type="text" onChange={this.storeInput} value={this.state.description} />
 				</div>
 				<input type="submit" value="Add New Habit" />
 				</form>
