@@ -5,17 +5,17 @@ import SERVER_URL from './constants/server';
 
 class NewHabitForm extends Component {
 
-	constructor(){
-		super()
+	constructor(props){
+		super(props)
 		this.state = {
-			user: this.props.user
+			user: props.user
 		}
 	}
 
 	newHabit = (e) => {
 		e.preventDefault()
 		// console.log(this.state)
-		fetch(SERVER_URL, {
+		fetch(SERVER_URL+'/'+this.state.user.id, {
 			method: 'POST',
 			body: JSON.stringify(this.state ), // data to send to server
 			headers: {
