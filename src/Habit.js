@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import HabitDetail from './HabitDetail';
 
 
 class Habit extends Component {
@@ -7,7 +9,7 @@ class Habit extends Component {
     super(props)
     this.state = {
       user: props.user,
-      habits: []
+      habit: props.habit
     }
   }
 
@@ -15,8 +17,15 @@ class Habit extends Component {
     if(this.props.user){
       return (
           <div>
-            <h2>This is a habit!</h2>
+
+            <h4>This is a habit!</h4>
             <p>{this.props.habit.name}</p>
+            {/*<button onClick={this.deleteBounty}>Delete</button>*/}
+            <Router>
+              <Link>Details</Link>
+              <Route path="" component={() => (<HabitDetail rerender={this.props.rerender} habit={this.props.habit} user={this.props.user}/>)}/>
+
+            </Router>
           </div>
         );
     }
