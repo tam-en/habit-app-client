@@ -1,10 +1,8 @@
-
-// THIS IS A VERY PRELIMINARY COMPONENT/FORM. CAN'T REALLY MAKE MUCH PROGRESS UNTIL A HABIT PROP IS GETTING PASSED TO IT. 
-// NO IDEA HOW CLOSE ANY OF THE CODE IS TO FUNCTIONAL.
-
-
 import React, { Component } from 'react';
 import SERVER_URL from './constants/server';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import EditHabitForm from './EditHabitForm';
+import Dashboard from './Dashboard';
 
 class HabitDetail extends Component {
   constructor(props){
@@ -56,7 +54,7 @@ class HabitDetail extends Component {
           <form onSubmit={this.newDay} >
           <div>
             <label>Date</label>
-            <input type="text" placeholder="What day are you recording?" name="date" onChange={this.storeInput} value={this.state.date} default={today} />
+            <input type="date" placeholder="What day are you recording?" name="date" onChange={this.storeInput} value={this.state.date} default={today} />
           </div>
           <div>
             <label>Times Per Day Completed</label>
@@ -67,8 +65,16 @@ class HabitDetail extends Component {
             <label>Notes</label>
             <input name="notes" type="text" onChange={this.storeInput} value={this.state.notes} />
           </div>
-          <input type="submit" value="Add New Day" />
+          <input type="submit" value="Add New Completions!" />
           </form>
+
+          <Router>
+            <Link to="/edit-habit">Edit This Habit</Link>
+            <Route path="/edit-habit" component={() => (<EditHabitForm habit={this.props.habit} user={this.props.user} />)} />
+            
+            <Link to="/delete-habit">Back to Dashboard</Link>
+            <Route path="/dashboard" component={() => (<Dashboard user={this.props.user} />)} />
+          </Router>
       </div>
       );
     }
