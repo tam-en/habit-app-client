@@ -9,11 +9,9 @@ class HabitDetail extends Component {
     super(props)
     this.state = {
       habit: props.habit,
-      dayData: {
-        date: new Date(),
-        completions: 0,
-        notes: ""
-      }
+      date: new Date(),
+      completions: 0,
+      notes: ""
     }
   }
 
@@ -21,11 +19,20 @@ class HabitDetail extends Component {
   newDay = (e) => {
    console.log("THIS.STATE UPON FORM SUBMIT", this.state)
     e.preventDefault()
-    // console.log(this.state)
-
-    fetch(SERVER_URL+'/habits/completions/'+this.props.user.id, {
+  
+  let dayData = {
+    date: this.state.date,
+    completions: this.state.completions,
+    notes: this.state.notes
+  }
+  
+  let bodyToSend = {
+    habit: this.props.habit,
+    dayData: dayData
+  }
+  fetch(SERVER_URL+'/habits/completions/'+this.props.user.id, {
       method: 'PUT',
-      body: JSON.stringify(this.state), // data to send to server
+      body: JSON.stringify(bodyToSend), // data to send to server
       headers: {
         'Content-Type': 'application/json' // let the server know what's coming
       }
@@ -43,9 +50,7 @@ class HabitDetail extends Component {
 
   storeInput = (e) => {
     this.setState({
-      dayData: {
-        [e.target.name]: e.target.value
-      }
+      [e.target.name]: e.target.value
     })
   }
 
