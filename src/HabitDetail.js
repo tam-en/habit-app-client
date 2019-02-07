@@ -11,8 +11,8 @@ class HabitDetail extends Component {
       habit: props.habit,
       dayData: {
         date: new Date(),
-        completions: props.completions,
-        notes: props.notes
+        completions: 0,
+        notes: ''
       }
     }
   }
