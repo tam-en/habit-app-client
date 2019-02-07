@@ -7,10 +7,13 @@ import Dashboard from './Dashboard';
 class HabitDetail extends Component {
   constructor(props){
     super(props)
-    this.state = { 
-      date: props.date,
-      completions: props.completions,
-      notes: props.notes
+    this.state = {
+      habit: this.props.habit,
+      dayData: {
+        date: props.date,
+        completions: props.completions,
+        notes: props.notes
+      }
     }
   }
 
