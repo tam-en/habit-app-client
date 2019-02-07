@@ -9,17 +9,9 @@ class HabitDetail extends Component {
     super(props)
     this.state = {
       habit: props.habit,
-<<<<<<< HEAD
       date: new Date(),
       completions: 0,
       notes: ""
-=======
-      dayData: {
-        date: new Date(),
-        completions: 0,
-        notes: ''
-      }
->>>>>>> 97a7c9bbc72a5f73c8b463ad16b3346d13811b3c
     }
   }
 
