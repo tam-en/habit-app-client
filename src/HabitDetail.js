@@ -69,11 +69,12 @@ class HabitDetail extends Component {
           </form>
 
           <Router>
-            <Link to="/edit-habit">Edit This Habit</Link>
-            <Route path="/edit-habit" component={() => (<EditHabitForm habit={this.props.habit} user={this.props.user} />)} />
-            
-            <Link to="/delete-habit">Back to Dashboard</Link>
-            <Route path="/dashboard" component={() => (<Dashboard user={this.props.user} />)} />
+            <div>
+              <Link to="/edit-habit">Edit This Habit</Link>
+              <Route path="/edit-habit" component={() => (<EditHabitForm habit={this.props.habit} user={this.props.user} />)} />
+              <Link to="/delete-habit">Back to Dashboard</Link>
+              <Route path="/dashboard" component={() => (<Dashboard user={this.props.user} />)} />
+            </div>
           </Router>
       </div>
       );
