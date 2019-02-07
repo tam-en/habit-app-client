@@ -64,16 +64,16 @@ class HabitDetail extends Component {
           <form onSubmit={this.newDay} >
           <div>
             <label>Date</label>
-            <input type="date" name="date" onChange={this.storeInput} value={this.state.dayData.date} />
+            <input type="date" name="date" onChange={this.storeInput} value={this.state.date} />
           </div>
           <div>
             <label>Times Per Day Completed</label>
             <input name="completions" type="number" min="0" max="100" step="1" 
-            onChange={this.storeInput} value={this.state.dayData.completions} />
+            onChange={this.storeInput} value={this.state.completions} />
           </div>
           <div>
             <label>Notes</label>
-            <input name="notes" type="text" onChange={this.storeInput} value={this.state.dayData.notes} />
+            <input name="notes" type="text" onChange={this.storeInput} value={this.state.notes} />
           </div> 
           <input type="submit" value="Add New Completions!" />
           </form>
