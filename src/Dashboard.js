@@ -9,16 +9,21 @@ class Dashboard extends Component {
     super(props)
     this.state = {
       user: props.user,
-      habits: {}
+      habits: []
     }
   }
 
   componentDidMount() {
-    this.getHabits()
+    if(this.state.user){
+      console.log("found user", this.props.user)
+      this.getHabits()
+    } else {
+      console.log("no user yet")
+    }
   }
 
   getHabits = () => {
-     fetch(SERVER_URL)
+     fetch(SERVER_URL+'/habits/'+this.props.user.id )
     .then(response=> {
       // fetch returns a fetch object, not JUST the data
       return response.json() // extract json from fetch object
@@ -34,13 +39,11 @@ class Dashboard extends Component {
 
   render() {
 
-    console.log("DASHBOARD PROPS", this.props.user)
-
     if(this.props.user){
       return (
           <div>
             <h2>{this.props.user.name}'s Habit Dashboard</h2>
-            <HabitList user={this.props.user} habits={this.props.habits} />
+            <HabitList user={this.props.user} habits={this.state.habits} />
             <NewHabitForm user={this.props.user} />
           </div>
         );

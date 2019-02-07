@@ -2,11 +2,26 @@ import React, { Component } from 'react';
 import Habit from './Habit';
 
 class HabitList extends Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      user: props.user,
+      habits: []
+    }
+  }
+
+  
+
+    
   render() {
+    const habitList = this.props.habits.map((h, i)=>(
+      <Habit habit={h} key={i} user={this.props.user} />));
     if(this.props.user){
       return (
           <div>
             <p>Use map iterator to create a div of each of the user's habits. Also pass down props to the Habit Component</p>
+            {habitList}
           </div>
         );
     }
