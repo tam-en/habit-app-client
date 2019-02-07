@@ -15,14 +15,40 @@ class HabitDetail extends Component {
     }
   }
 
+  // Push the new day into the DAYS array in the habit model
   newDay = (e) => {
+   console.log("THIS.STATE UPON FORM SUBMIT", this.state)
     e.preventDefault()
     // console.log(this.state)
 
-    // REALLY CANNOT FIDDLE WITH THIS JAVASCRIPT UNTIL THIS FORM IS GETTING A HABIT PROP/DATA TO WORK WITH
+    fetch(SERVER_URL+'/habits/completions/'+this.props.user.id, {
+      method: 'PUT',
+      body: JSON.stringify(this.state), // data to send to server
+      headers: {
+        'Content-Type': 'application/json' // let the server know what's coming
+      }
+    })
+    .then(response => response.json())
+    .then(json => {
+      // console.log(json)
+      console.log("THIS:", this.props)
+      this.props.rerender()
+    })
+    .catch(err => {
+      console.log('Error posting completion data!', err)
+    })
   }
+
+  storeInput = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
   render() {
+
     let today = new Date();
+
     if(this.props.user){
       return(
         <div>
@@ -53,4 +79,6 @@ class HabitDetail extends Component {
       );
   }
 }
-export default HabitDetail;
+
+
+export default HabitDetail
