@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 
+
 class Habit extends Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      user: props.user,
+      habits: []
+    }
+  }
+
   render() {
     if(this.props.user){
       return (
           <div>
             <h2>This is a habit!</h2>
-            
+            <p>{this.props.habit.name}</p>
           </div>
         );
     }

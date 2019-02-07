@@ -26,7 +26,7 @@ class NewHabitForm extends Component {
 		console.log("THIS.STATE UPON FORM SUBMIT", this.state)
 		e.preventDefault()
 		// console.log(this.state)
-		fetch(SERVER_URL+'/habits/'+this.state.user.id, {
+		fetch(SERVER_URL+'/habits/'+this.props.user.id, {
 			method: 'POST',
 			body: JSON.stringify(this.state), // data to send to server
 			headers: {
