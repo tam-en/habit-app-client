@@ -9,12 +9,16 @@ import Login from './auth/Login';
 import Nav from './layout/Nav';
 import Dashboard from './Dashboard';
 import Signup from './auth/Signup';
+import HabitList from './HabitList';
+import NewHabitForm from './NewHabitForm';
+import EditHabitForm from './EditHabitForm';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      user: null
+      user: null,
+      form: 'new'
     }
   }
 
@@ -64,7 +68,21 @@ class App extends Component {
     })   
   };
 
+  toggleForm = () => {
+    const newForm = this.state.form === 'edit'?'new':'edit'
+    this.setState({form: newForm})
+  }
+
   render() {
+
+    const form = this.state.form === 'new' ?
+                    <NewHabitForm rerender={this.getHabits} /> : 
+                    <EditHabitForm current={this.state.current}
+                    rerender={this.getBounties}
+                    changeCurrent={this.changeCurrent} 
+                    toggleForm={this.toggleForm} />
+                   
+
     return (
       <div className="App">
         <Router>

@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import HabitList from './HabitList';
 import NewHabitForm from './NewHabitForm';
 import SERVER_URL from './constants/server';
-import HabitDetail from './HabitDetail'
-
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 class Dashboard extends Component { 
   constructor(props){
     super(props)
@@ -41,11 +40,19 @@ class Dashboard extends Component {
 
     if(this.props.user){
       return (
+        <Router>
           <div>
             <h2>{this.props.user.name}'s Habit Dashboard</h2>
             <HabitList user={this.props.user} habits={this.state.habits} />
-            <NewHabitForm user={this.props.user} />
+            <Route path="/NewHabitForm"component={
+              () => (<NewHabitForm user={this.state.user} />)
+            } />
+      <button><Link to= "/NewHabitForm">New Habit</Link></button>
+      <button onClick={this.props.toggleForm}>Edit</button>
+            {/* <NewHabitForm user={this.props.user} /> */}
           </div>
+          </Router>
+
         );
     }
     return(
