@@ -8,9 +8,9 @@ class HabitDetail extends Component {
   constructor(props){
     super(props)
     this.state = {
-      habit: this.props.habit,
+      habit: props.habit,
       dayData: {
-        date: props.date,
+        date: new Date(),
         completions: props.completions,
         notes: props.notes
       }
@@ -43,7 +43,9 @@ class HabitDetail extends Component {
 
   storeInput = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      dayData: {
+        [e.target.name]: e.target.value
+      }
     })
   }
 
@@ -57,16 +59,16 @@ class HabitDetail extends Component {
           <form onSubmit={this.newDay} >
           <div>
             <label>Date</label>
-            <input type="date" placeholder="What day are you recording?" name="date" onChange={this.storeInput} value={this.state.date} default={today} />
+            <input type="date" placeholder="What day are you recording?" name="date" onChange={this.storeInput} value={this.state.dayData.date} />
           </div>
           <div>
             <label>Times Per Day Completed</label>
             <input name="completions" type="number" min="1" max="100" step="1" placeholder="How many times per day would be ideal?" 
-            onChange={this.storeInput} value={this.state.completions} />
+            onChange={this.storeInput} value={this.state.dayData.completions} />
           </div>
           <div>
             <label>Notes</label>
-            <input name="notes" type="text" onChange={this.storeInput} value={this.state.notes} />
+            <input name="notes" type="text" onChange={this.storeInput} value={this.state.dayData.notes} />
           </div>
           <input type="submit" value="Add New Completions!" />
           </form>
