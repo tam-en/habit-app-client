@@ -47,7 +47,7 @@ class HabitDetail extends Component {
   render() {
 
     let today = new Date();
-
+    console.log("THIS.STATE UPON COMPLETIONS:", this.state)
     if(this.props.user){
       return(
         <div>
