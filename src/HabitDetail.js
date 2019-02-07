@@ -22,9 +22,7 @@ class HabitDetail extends Component {
     // REALLY CANNOT FIDDLE WITH THIS JAVASCRIPT UNTIL THIS FORM IS GETTING A HABIT PROP/DATA TO WORK WITH
   }
   render() {
-
-      let today = new Date();
-
+    let today = new Date();
     if(this.props.user){
       return(
         <div>
