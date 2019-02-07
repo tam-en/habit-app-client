@@ -4,6 +4,7 @@
 
 
 import React, { Component } from 'react';
+import SERVER_URL from './constants/server';
 
 class HabitDetail extends Component {
   constructor(props){
