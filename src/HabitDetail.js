@@ -20,6 +20,7 @@ class HabitDetail extends Component {
    console.log("THIS.STATE UPON FORM SUBMIT", this.state)
     e.preventDefault()
     // console.log(this.state)
+
     fetch(SERVER_URL+'/habits/completions/'+this.props.user.id, {
       method: 'PUT',
       body: JSON.stringify(this.state), // data to send to server
@@ -79,9 +80,5 @@ class HabitDetail extends Component {
   }
 }
 
+
 export default HabitDetail
-
-
-
-  
-
