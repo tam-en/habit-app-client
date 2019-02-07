@@ -22,9 +22,10 @@ class Habit extends Component {
             <p>{this.props.habit.name}</p>
             {/*<button onClick={this.deleteBounty}>Delete</button>*/}
             <Router>
-              <Link>Details</Link>
-              <Route path="" component={() => (<HabitDetail rerender={this.props.rerender} habit={this.props.habit} user={this.props.user}/>)}/>
-
+              <div>
+                <Link>Details</Link>
+                <Route path="" component={() => (<HabitDetail rerender={this.props.rerender} habit={this.props.habit} user={this.props.user}/>)}/>
+              </div>
             </Router>
           </div>
         );
