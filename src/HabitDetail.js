@@ -69,7 +69,7 @@ class HabitDetail extends Component {
           <div>
             <label>Notes</label>
             <input name="notes" type="text" onChange={this.storeInput} value={this.state.dayData.notes} />
-          </div>
+          </div> 
           <input type="submit" value="Add New Completions!" />
           </form>
 
