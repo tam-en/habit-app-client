@@ -30,7 +30,7 @@ class HabitDetail extends Component {
     habit: this.props.habit,
     dayData: dayData
   }
-  fetch(SERVER_URL+'/habits/completions/'+this.props.user.id+'/'+this.props.habit.id, {
+  fetch(SERVER_URL+'/habits/completions/'+this.props.user.id+'/'+this.props.habit._id, {
       method: 'PUT',
       body: JSON.stringify(bodyToSend), // data to send to server
       headers: {
