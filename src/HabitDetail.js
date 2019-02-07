@@ -8,12 +8,10 @@ class HabitDetail extends Component {
   constructor(props){
     super(props)
     this.state = {
-      habit: this.props.habit,
-      dayData: {
-        date: props.date,
-        completions: props.completions,
-        notes: props.notes
-      }
+      habit: props.habit,
+      date: new Date(),
+      completions: 0,
+      notes: ""
     }
   }
 
@@ -21,11 +19,20 @@ class HabitDetail extends Component {
   newDay = (e) => {
    console.log("THIS.STATE UPON FORM SUBMIT", this.state)
     e.preventDefault()
-    // console.log(this.state)
-
-    fetch(SERVER_URL+'/habits/completions/'+this.props.user.id, {
+  
+  let dayData = {
+    date: this.state.date,
+    completions: this.state.completions,
+    notes: this.state.notes
+  }
+  
+  let bodyToSend = {
+    habit: this.props.habit,
+    dayData: dayData
+  }
+  fetch(SERVER_URL+'/habits/completions/'+this.props.user.id+'/'+this.props.habit.id, {
       method: 'PUT',
-      body: JSON.stringify(this.state), // data to send to server
+      body: JSON.stringify(bodyToSend), // data to send to server
       headers: {
         'Content-Type': 'application/json' // let the server know what's coming
       }
@@ -57,17 +64,17 @@ class HabitDetail extends Component {
           <form onSubmit={this.newDay} >
           <div>
             <label>Date</label>
-            <input type="date" placeholder="What day are you recording?" name="date" onChange={this.storeInput} value={this.state.date} default={today} />
+            <input type="date" name="date" onChange={this.storeInput} value={this.state.date} />
           </div>
           <div>
             <label>Times Per Day Completed</label>
-            <input name="completions" type="number" min="1" max="100" step="1" placeholder="How many times per day would be ideal?" 
+            <input name="completions" type="number" min="0" max="100" step="1" 
             onChange={this.storeInput} value={this.state.completions} />
           </div>
           <div>
             <label>Notes</label>
             <input name="notes" type="text" onChange={this.storeInput} value={this.state.notes} />
-          </div>
+          </div> 
           <input type="submit" value="Add New Completions!" />
           </form>
 
