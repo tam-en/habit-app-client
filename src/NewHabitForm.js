@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import SERVER_URL from './constants/server';
 
+// any time componentDidMount & dateChange happens we need to fetch data (again) . . . e.g., the fetching should
+// happen in a function that can be called when needed
 
 
 class NewHabitForm extends Component {
@@ -12,7 +14,7 @@ class NewHabitForm extends Component {
 			timesPerDay: 0,
 			description: "",
 			days: [],
-			user: props.user._id
+			user: props.user.id
 		}
 	}
 
