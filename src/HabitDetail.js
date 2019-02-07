@@ -59,11 +59,11 @@ class HabitDetail extends Component {
           <form onSubmit={this.newDay} >
           <div>
             <label>Date</label>
-            <input type="date" placeholder="What day are you recording?" name="date" onChange={this.storeInput} value={this.state.dayData.date} />
+            <input type="date" name="date" onChange={this.storeInput} value={this.state.dayData.date} />
           </div>
           <div>
             <label>Times Per Day Completed</label>
-            <input name="completions" type="number" min="1" max="100" step="1" placeholder="How many times per day would be ideal?" 
+            <input name="completions" type="number" min="0" max="100" step="1" 
             onChange={this.storeInput} value={this.state.dayData.completions} />
           </div>
           <div>
