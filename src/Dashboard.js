@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import HabitList from './HabitList';
 import NewHabitForm from './NewHabitForm';
 import SERVER_URL from './constants/server';
-
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 class Dashboard extends Component { 
   constructor(props){
     super(props)
@@ -30,6 +30,7 @@ class Dashboard extends Component {
     .then(json=>{
       console.log(json)
       this.setState({habits: json})
+      this.props.rerender()
     })
     .catch(err=>{
       console.log("Error fetching habits!", err)
@@ -37,14 +38,22 @@ class Dashboard extends Component {
   }
 
   render() {
-
+    // <NewBountyForm rerender={this.getHabits} />
+    
     if(this.props.user){
       return (
           <div>
+            <Router>
             <h2>{this.props.user.name}'s Habit Dashboard</h2>
             <HabitList user={this.props.user} habits={this.state.habits} />
-            <NewHabitForm user={this.props.user} />
+            <Route path="/NewHabitForm"component={
+              () => (<NewHabitForm user={this.state.user} />)
+            } />
+      <button><Link to= {"/NewHabitForm"}>New Habit</Link></button>
+            {/* <NewHabitForm user={this.props.user} /> */}
+           </Router>
           </div>
+
         );
     }
     return(
