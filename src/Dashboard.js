@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import HabitList from './HabitList';
 import NewHabitForm from './NewHabitForm';
 import SERVER_URL from './constants/server';
+import HabitDetail from './HabitDetail'
 
 class Dashboard extends Component { 
   constructor(props){
