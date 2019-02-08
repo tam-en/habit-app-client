@@ -19,18 +19,18 @@ class HabitDetail extends Component {
   newDay = (e) => {
    console.log("THIS.STATE UPON FORM SUBMIT", this.state)
     e.preventDefault()
-  
+
   let dayData = {
     date: this.state.date,
     completions: this.state.completions,
     notes: this.state.notes
   }
-  
+
   let bodyToSend = {
     habit: this.props.habit,
     dayData: dayData
   }
-  fetch(SERVER_URL+'/habits/completions/'+this.props.user.id+'/'+this.props.habit._id, {
+  fetch(SERVER_URL+'/habits/completions/'+this.props.habit._id, {
       method: 'PUT',
       body: JSON.stringify(bodyToSend), // data to send to server
       headers: {
@@ -38,10 +38,10 @@ class HabitDetail extends Component {
       }
     })
     .then(response => response.json())
-    .then(json => {
+    .then(updatedHabit => {
       // console.log(json)
-      console.log("THIS:", this.props)
-      this.props.rerender()
+      console.log("ANSWER FROM SERVER:", updatedHabit);
+      // this.props.rerender()
     })
     .catch(err => {
       console.log('Error posting completion data!', err)
@@ -68,13 +68,13 @@ class HabitDetail extends Component {
           </div>
           <div>
             <label>Times Per Day Completed</label>
-            <input name="completions" type="number" min="0" max="100" step="1" 
+            <input name="completions" type="number" min="0" max="100" step="1"
             onChange={this.storeInput} value={this.state.completions} />
           </div>
           <div>
             <label>Notes</label>
             <input name="notes" type="text" onChange={this.storeInput} value={this.state.notes} />
-          </div> 
+          </div>
           <input type="submit" value="Add New Completions!" />
           </form>
 

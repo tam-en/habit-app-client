@@ -11,12 +11,12 @@ class HabitList extends Component {
     }
   }
 
-  
 
-    
   render() {
-    const habitList = this.props.habits.map((h, i)=>(
-      <Habit habit={h} key={i} user={this.props.user} />));
+    const habitList = this.props.habits.map((h, i) => {
+      return (<Habit habit={h} key={i} user={this.props.user} />);
+    });
+
     if(this.props.user){
       return (
           <div>
