@@ -8,7 +8,8 @@ class Dashboard extends Component {
     super(props)
     this.state = {
       user: props.user,
-      habits: []
+      habits: [],
+      currentHabit: {}
     }
   }
 
@@ -36,14 +37,19 @@ class Dashboard extends Component {
     })   
   }
 
+  changeCurrent = (habit) => {
+    this.setState({ currentHabit: habit })
+  }
+
   render() {
 
     if(this.props.user){
       return (
+        const details = this.state.currentHabit._id ? <HabitDetails currentHabit={this.state.currentHabit} /> : <HabitList user={this.props.user} habits={this.state.habits} />
         <Router>
           <div>
             <h2>{this.props.user.name}'s Habit Dashboard</h2>
-            <HabitList user={this.props.user} habits={this.state.habits} />
+            {details}
             <Route path="/NewHabitForm"component={
               () => (<NewHabitForm user={this.state.user} onAdd={this.getHabits} />)
             } />

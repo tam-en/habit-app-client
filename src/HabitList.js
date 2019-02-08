@@ -12,13 +12,9 @@ class HabitList extends Component {
     }
   }
 
-  changeCurrent = (habit) => {
-    this.setState({ currentHabit: habit })
-  }
-
   render() {
     const habitList = this.props.habits.map((h, i) => {
-      return (<Habit habit={h} key={i} user={this.props.user} changeCurrent={changeCurrent} />);
+      return (<Habit habit={h} key={i} user={this.props.user} currentHabit={this.state.currentHabit} />);
     });
 
     if(this.props.user){
@@ -28,7 +24,7 @@ class HabitList extends Component {
             {habitList}
           </div>
         );
-    }
+    }2
     return(
       <div>
         <p>This is a habit page. You must be logged in to see it.</p>
