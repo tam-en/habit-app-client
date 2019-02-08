@@ -14,7 +14,7 @@ class HabitList extends Component {
 
   render() {
     const habitList = this.props.habits.map((h, i) => {
-      return (<Habit habit={h} key={i} user={this.props.user} currentHabit={this.state.currentHabit} />);
+      return (<Habit habit={h} key={i} user={this.props.user} changeCurrent={this.props.changeCurrent} />);
     });
 
     if(this.props.user){
