@@ -17,18 +17,15 @@ class HabitDetail extends Component {
 
   // Push the new day into the DAYS array in the habit model
   newDay = (e) => {
-   console.log("THIS.STATE UPON FORM SUBMIT", this.state)
+    console.log("THIS.STATE UPON FORM SUBMIT", this.state)
     e.preventDefault()
 
-  let dayData = {
-    date: this.state.date,
-    completions: this.state.completions,
-    notes: this.state.notes
-  }
-
-  let bodyToSend = {
-    habit: this.props.habit,
-    dayData: dayData
+    let bodyToSend = {
+      dayData: {
+      date: this.state.date,
+      completions: this.state.completions,
+      notes: this.state.notes
+    }
   }
   fetch(SERVER_URL+'/habits/completions/'+this.props.habit._id, {
       method: 'PUT',
