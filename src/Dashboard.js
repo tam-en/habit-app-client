@@ -45,7 +45,7 @@ class Dashboard extends Component {
             <h2>{this.props.user.name}'s Habit Dashboard</h2>
             <HabitList user={this.props.user} habits={this.state.habits} />
             <Route path="/NewHabitForm"component={
-              () => (<NewHabitForm user={this.state.user} />)
+              () => (<NewHabitForm user={this.state.user} onAdd={this.getHabits} />)
             } />
       <button><Link to= "/NewHabitForm">New Habit</Link></button>
       <button onClick={this.props.toggleForm}>Edit</button>

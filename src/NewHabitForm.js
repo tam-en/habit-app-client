@@ -39,7 +39,7 @@ class NewHabitForm extends Component {
 		.then(json => {
 			// console.log(json)
 			console.log("THIS:", this.props)
-			this.props.rerender()
+			this.props.onAdd();
 		})
 		.catch(err => {
 			console.log('Error posting data!', err)
