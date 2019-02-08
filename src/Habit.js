@@ -17,7 +17,6 @@ class Habit extends Component {
     if(this.props.user){
       return (
           <div>
-
             <h4>This is a habit!</h4>
             <p>{this.props.habit.name}</p>
             {/*<button onClick={this.deleteBounty}>Delete</button>*/}
