@@ -19,13 +19,13 @@ class Habit extends Component {
           <div>
             <h4>This is a habit!</h4>
             <p>{this.props.habit.name}</p>
-            {/*<button onClick={this.deleteBounty}>Delete</button>*/}
-            <Router>
+            <button onClick={()=>{this.props.changeCurrent(this.props.habit)}}>Details</button>
+            {/*<Router>
               <div>
-                <Link to="/habit-detail">Details</Link>
+                <Link to="/habit-detail"></Link>
                 <Route path="/habit-detail" component={() => (<HabitDetail rerender={this.props.rerender} habit={this.props.habit} user={this.props.user}/>)}/>
               </div>
-            </Router>
+            </Router>*/}
           </div>
         );
     }

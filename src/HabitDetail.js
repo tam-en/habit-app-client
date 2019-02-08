@@ -12,8 +12,12 @@ class HabitDetail extends Component {
       date: new Date(),
       completions: 0,
       notes: "",
-      currentHabit: false
+      currentHabit: {}
     }
+  }
+
+  componentDidMount = () => {
+    this.setState({ currentHabit: this.props.habit })
   }
 
   // Push the new day into the DAYS array in the habit model
@@ -57,7 +61,6 @@ class HabitDetail extends Component {
 
 
   render() {
-    <HabitDetail habit={this.state.currentHabbit} />
 
     let today = new Date();
     console.log("THIS.STATE UPON COMPLETIONS:", this.state)

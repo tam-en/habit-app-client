@@ -3,12 +3,15 @@ import HabitList from './HabitList';
 import NewHabitForm from './NewHabitForm';
 import SERVER_URL from './constants/server';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import HabitDetail from './HabitDetail';
+
 class Dashboard extends Component { 
   constructor(props){
     super(props)
     this.state = {
       user: props.user,
-      habits: []
+      habits: [],
+      currentHabit: {}
     }
   }
 
@@ -36,14 +39,18 @@ class Dashboard extends Component {
     })   
   }
 
-  render() {
+  changeCurrent = (habit) => {
+    this.setState({ currentHabit: habit })
+  }
 
+  render() {
+    const details = this.state.currentHabit._id ? <HabitDetail currentHabit={this.state.currentHabit} user={this.props.user} /> : <HabitList user={this.props.user} habits={this.state.habits} changeCurrent={this.changeCurrent} />
     if(this.props.user){
       return (
         <Router>
           <div>
             <h2>{this.props.user.name}'s Habit Dashboard</h2>
-            <HabitList user={this.props.user} habits={this.state.habits} />
+            {details}
             <Route path="/NewHabitForm"component={
               () => (<NewHabitForm user={this.state.user} onAdd={this.getHabits} />)
             } />
