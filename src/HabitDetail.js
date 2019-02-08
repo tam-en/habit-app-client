@@ -40,6 +40,7 @@ class HabitDetail extends Component {
       // console.log(json)
       console.log("ANSWER FROM SERVER:", updatedHabit);
       // this.props.rerender()
+      this.props.onAdd()
     })
     .catch(err => {
       console.log('Error posting completion data!', err)
@@ -52,13 +53,9 @@ class HabitDetail extends Component {
     })
   }
 
-  currentHabit = () => this.setState({ currentHabit_id: true })
-
-
-
+  
   render() {
-    <HabitDetail habit={this.state.currentHabbit} />
-
+    
     let today = new Date();
     console.log("THIS.STATE UPON COMPLETIONS:", this.state)
     if(this.props.user){

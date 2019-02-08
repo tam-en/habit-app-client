@@ -23,7 +23,7 @@ class Habit extends Component {
             <Router>
               <div>
                 <Link to="/habit-detail">Details</Link>
-                <Route path="/habit-detail" component={() => (<HabitDetail rerender={this.props.rerender} habit={this.props.habit} user={this.props.user}/>)}/>
+                <Route path="/habit-detail" component={() => (<HabitDetail rerender={this.props.rerender} habit={this.props.habit} user={this.props.user} />)}/>
               </div>
             </Router>
           </div>
