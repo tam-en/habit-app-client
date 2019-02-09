@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import HabitList from './HabitList';
 import NewHabitForm from './NewHabitForm';
 import SERVER_URL from './constants/server';
-import HabitDetail from './HabitDetail';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import HabitDetail from './HabitDetail';
+
 class Dashboard extends Component { 
   constructor(props){
     super(props)
     this.state = {
       user: props.user,
-      habits: []
+      habits: [],
+      currentHabit: {}
     }
   }
 
@@ -37,15 +39,18 @@ class Dashboard extends Component {
     })   
   }
 
-  render() {
-    <HabitDetail habit={this.state.currentHabit} />
+  changeCurrent = (habit) => {
+    this.setState({ currentHabit: habit })
+  }
 
+  render() {
+    const details = this.state.currentHabit._id ? <HabitDetail changeCurrent={this.changeCurrent} currentHabit={this.state.currentHabit} user={this.props.user} /> : <HabitList user={this.props.user} habits={this.state.habits} changeCurrent={this.changeCurrent} />
     if(this.props.user){
       return (
         <Router>
           <div>
             <h2>{this.props.user.name}'s Habit Dashboard</h2>
-            <HabitList user={this.props.user} habits={this.state.habits} />
+            {details}
             <Route path="/NewHabitForm"component={
               () => (<NewHabitForm user={this.state.user} onAdd={this.getHabits} />)
             } />
@@ -54,7 +59,6 @@ class Dashboard extends Component {
             {/* <NewHabitForm user={this.props.user} /> */}
           </div>
           </Router>
-
         );
     }
     return(
@@ -65,5 +69,4 @@ class Dashboard extends Component {
       );
   }
 }
-
 export default Dashboard;

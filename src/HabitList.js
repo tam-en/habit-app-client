@@ -7,13 +7,14 @@ class HabitList extends Component {
     super(props)
     this.state = {
       user: props.user,
-      habits: []
+      habits: [],
+      currentHabit: {}
     }
   }
 
   render() {
     const habitList = this.props.habits.map((h, i) => {
-      return (<Habit habit={h} key={i} user={this.props.user} />);
+      return (<Habit habit={h} key={i} user={this.props.user} changeCurrent={this.props.changeCurrent} />);
     });
 
     if(this.props.user){
@@ -23,7 +24,7 @@ class HabitList extends Component {
             {habitList}
           </div>
         );
-    }
+    }2
     return(
       <div>
         <p>This is a habit page. You must be logged in to see it.</p>

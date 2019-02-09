@@ -12,8 +12,12 @@ class HabitDetail extends Component {
       date: new Date(),
       completions: 0,
       notes: "",
-      currentHabit: false
+      currentHabit: {}
     }
+  }
+
+  componentDidMount = () => {
+    this.setState({ currentHabit: this.props.habit })
   }
 
   // Push the new day into the DAYS array in the habit model
@@ -28,7 +32,7 @@ class HabitDetail extends Component {
       notes: this.state.notes
     }
   }
-  fetch(SERVER_URL+'/habits/completions/'+this.props.habit._id, {
+  fetch(SERVER_URL+'/habits/completions/'+this.props.currentHabit._id, {
       method: 'PUT',
       body: JSON.stringify(bodyToSend), // data to send to server
       headers: {
@@ -39,6 +43,7 @@ class HabitDetail extends Component {
     .then(updatedHabit => {
       // console.log(json)
       console.log("ANSWER FROM SERVER:", updatedHabit);
+      this.props.changeCurrent({})
       // this.props.rerender()
       this.props.onAdd()
     })
@@ -53,14 +58,20 @@ class HabitDetail extends Component {
     })
   }
 
+<<<<<<< HEAD
   
   render() {
     
+=======
+  render() {
+
+>>>>>>> 5d62eddffaa726ed94d54005445a5ba8f285f4a3
     let today = new Date();
     console.log("THIS.STATE UPON COMPLETIONS:", this.state)
     if(this.props.user){
       return(
         <div>
+        <h2>Habit: {this.props.currentHabit.name}</h2>
           <form onSubmit={this.newDay} >
           <div>
             <label>Date</label>
@@ -77,13 +88,11 @@ class HabitDetail extends Component {
           </div>
           <input type="submit" value="Add New Completions!" />
           </form>
-
+          <button onClick={()=>{this.props.changeCurrent({})}}>Back</button>
           <Router>
             <div>
               <Link to="/edit-habit">Edit This Habit</Link>
               <Route path="/edit-habit" component={() => (<EditHabitForm habit={this.props.habit} user={this.props.user} />)} />
-              <Link to="/delete-habit">Back to Dashboard</Link>
-              <Route path="/dashboard" component={() => (<Dashboard user={this.props.user} />)} />
             </div>
           </Router>
       </div>
