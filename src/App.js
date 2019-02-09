@@ -84,6 +84,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="pageGuts">
+          <div className="mainTitle">
+          <h1>HABITS TRACKER</h1>
+          </div>
           <div className="trackSvg">
           </div>
           <Router>
