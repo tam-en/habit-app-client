@@ -44,7 +44,7 @@ class Dashboard extends Component {
   }
 
   render() {
-    const details = this.state.currentHabit._id ? <HabitDetail currentHabit={this.state.currentHabit} user={this.props.user} /> : <HabitList user={this.props.user} habits={this.state.habits} changeCurrent={this.changeCurrent} />
+    const details = this.state.currentHabit._id ? <HabitDetail changeCurrent={this.changeCurrent} currentHabit={this.state.currentHabit} user={this.props.user} /> : <HabitList user={this.props.user} habits={this.state.habits} changeCurrent={this.changeCurrent} />
     if(this.props.user){
       return (
         <Router>
