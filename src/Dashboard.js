@@ -45,12 +45,13 @@ class Dashboard extends Component {
 
   render() {
     const details = this.state.currentHabit._id ? <HabitDetail changeCurrent={this.changeCurrent} currentHabit={this.state.currentHabit} user={this.props.user} /> : <HabitList user={this.props.user} habits={this.state.habits} changeCurrent={this.changeCurrent} />
+    const headerText = this.state.currentHabit._id ? ": "+ this.state.currentHabit.name : "s:"
     if(this.props.user){
       return (
         <Router>
           <div className="pageGrid">
             <div className="mainPageContent">
-              <h2>{this.props.user.name}&rsquo;s habits:</h2>
+              <h2>{this.props.user.name}&rsquo;s habit{headerText}</h2>
               {details}
               <hr />
               <Route path="/NewHabitForm"component={
