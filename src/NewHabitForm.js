@@ -4,7 +4,6 @@ import SERVER_URL from './constants/server';
 // any time componentDidMount & dateChange happens we need to fetch data (again) . . . e.g., the fetching should
 // happen in a function that can be called when needed
 
-
 class NewHabitForm extends Component {
 
 	constructor(props){
@@ -51,20 +50,21 @@ class NewHabitForm extends Component {
 			<div>
 				<form onSubmit={this.newHabit} >
 				<div>
-					<label>Name</label>
-					<input type="text" placeholder="What's the name of your new daily habit?" name="name" onChange={this.storeInput} value={this.state.name} />
+					<label>New habit name: </label>
+					<input type="text" placeholder="Name of daily habit" name="name" onChange={this.storeInput} value={this.state.name} />
 				</div>
 				<div>
-					<label>Times Per Day Goal</label>
-					<input name="timesPerDay" type="number" min="1" max="100" step="1" placeholder="How many times per day would be ideal?" 
+					<label>Times per day goal: </label>
+					<input name="timesPerDay" type="number" min="1" max="100" step="1" placeholder="Times per day goal" 
 					onChange={this.storeInput} value={this.state.timesPerDay} />
 				</div>
 				<div>
-					<label>Description</label>
-					<input name="description" type="text" onChange={this.storeInput} value={this.state.description} />
+					<label>Description: </label>
+					<textarea name="description" type="text" placeholder="description" className="textField" onChange={this.storeInput} value={this.state.description} />
 				</div>
-				<input type="submit" value="Add New Habit" />
+				<input type="submit" value="Submit" />
 				</form>
+				<hr />
 			</div>
 		)
 	}

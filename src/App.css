@@ -1,61 +1,264 @@
-/* CUSTOM STYLES */
-nav {
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #72A954;
+/*  background-color: #65B6BE;
+*/  font-size: 15px;
+  line-height: 1.5;
+}
+
+.pageGuts {
+  display: grid;
+  grid-template-rows: 10000px;
+  grid-template-columns: 10px 50px 1fr 20px;
+}
+
+.trackSvg {
+  grid-area: 1 / 2 / 2 / 3;
+  background-image: url("./images/traintrack_small.svg");
+  background-repeat: repeat-y;
+  background-size: 30px;
+}
+
+.container {
+  grid-area: 1 / 1 / 2 / 5;
+}
+
+.wholeGrid {
+  grid-area: 1 / 1 / 2 / 5;
+  display: grid;
+  grid-template-rows: 10000px;
+  grid-template-columns: 10px 50px 1fr 20px;
+}
+
+.anotherWholeGrid {
+  grid-area: 1 / 1 / 2 / 5; 
+  display: grid;
+  grid-template-rows: 10000px;
+  grid-template-columns: 10px 50px 1fr 20px;
+}
+
+.pageGrid {
+  grid-area: 1 / 1 / 2 / 5;   
+  display: grid;
+  grid-template-rows: 10000px;
+  grid-template-columns: 10px 50px 1fr 20px;
+}
+
+.mainPageContent {
+  margin-top: 80px;
+  margin-left: 10px;
+  grid-area: 1 / 3 / 2 / 4; 
+}
+
+.nav {
+  grid-area: 1 / 1 / 2 / 5;
+  height: 25px;
   width: 100%;
-  background-color: #555;
-  padding: 10px 0;
+  background-color: #663C12;
+  padding: 10px 0 10px 10px;
 }
 
 nav a {
-  margin: 10px;
+  margin: 10px 30px 10px 0px;
   text-decoration: none;
-  font-size: 20px;
-  color: chartreuse;
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: .1em;
+  font-size: 16px;
+  color: #FDF8EA;
   cursor: pointer;
 }
 
 nav a:hover {
-  color: hotpink;
+  color: #C4D9A1;
 }
 
-.footer {
-  background-color: #555;
+h3 {
+  font-size: 20px;
+  font-weight: 800;  
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 800;
+  letter-spacing: .05em;
+}
+
+
+input, 
+input[type=button], 
+input[type=submit],
+textarea {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 5px 5px 5px 0;
+  padding: 5px 10px;
+  background-color: #FDF8EA;
+  box-sizing: border-box;
+  border-top: 1px solid #663C12;
+  border-left: 1px solid #663C12;
+  border-bottom: 2px solid #663C12;
+  border-right: 2px solid #663C12;
+  border-radius: 4px;
+  outline: none;  
+}
+
+input[type=date] {
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+input > .notes {
+  min-width: 200px;
+  height: 100px;
+}
+
+input:hover {
+  background-color: #C4D9A1;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;  
+}
+
+textarea {
   width: 100%;
-  height: 25px;
-  position: fixed;
-  bottom: 0;
+  height: 100px;
 }
 
-.footer-text{
-  color: white;
-  font-size: 11px;
+button,
+.button {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 5px 5px 5px 0;
+  padding: 5px 10px;
+  background-color: #FDF8EA;
+  border-top: 1px solid #663C12;
+  border-left: 1px solid #663C12;
+  border-bottom: 2px solid #663C12;
+  border-right: 2px solid #663C12;
+  border-radius: 4px;
+  text-decoration: none;
+  color: black;
 }
 
-/* DEFAULT STYLES */
-.App {
-  text-align: center;
+.buttonLink {
+  text-decoration: none;
+  color: black;  
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.habitContainer > button {
+  min-width: 200px;  
+  font-size: 16px;
+  font-weight: 600;
+  margin: 5px 5px 5px 0;
+  padding: 10px;
+  background-color: #FDF8EA;
+  border-top: 1px solid #663C12;
+  border-left: 1px solid #663C12;
+  border-bottom: 2px solid #663C12;
+  border-right: 2px solid #663C12;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 800;
+  letter-spacing: .05em;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.habitContainer > button:hover {
+  background-color: #C4D9A1;  
 }
 
-.App-title {
-  font-size: 1.5em;
+
+.habitTitle {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 5px;
+  margin: 5px 5px 5px 0;
 }
 
-.App-intro {
-  font-size: large;
+hr {
+  margin: 20px 0;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.somethingBuggy {
+  color: black;
+  background-color: hotpink;
+  text-decoration: none;
+  font-weight: 800;
 }
+
+.mainTitle { 
+    font-family: 'Bungee', cursive;
+    font-size: 11.5px;
+    letter-spacing: .1em;  
+    grid-area: 1 / 3 / 2 / 4;
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 43px;
+}
+
+@media only screen and (min-width: 900px) {
+  .mainTitle {
+    font-size: 14px;
+    grid-area: 1 / 1 / 2 / 2;
+    text-align: right;
+    margin-right: 20px;
+    margin-top: 43px;
+  }
+  .mainPageContent {
+    margin-top: 45px;
+  }
+}
+
+
+@media only screen and (min-width: 700px) {
+  .pageGuts {
+    grid-template-columns: 1fr 50px 3fr 1fr;
+  }
+
+  .trackSvg {
+    background-image: url("./images/traintrack.svg");
+    background-size: 40px;
+  }
+
+  .container {
+    grid-area: 1 / 1 / 2 / 5;
+  }
+
+  .wholeGrid {
+    grid-template-columns: 1fr 50px 3fr 1fr;
+  }
+
+  .anotherWholeGrid {
+    grid-template-columns: 1fr 50px 3fr 1fr;
+  }
+
+  .pageGrid {
+    grid-template-columns: 1fr 50px 3fr 1fr;
+  }
+
+  .nav {
+    grid-area: 1 / 2 / 2 / 5;
+  }
+
+  .navBackground {
+    grid-area: 1 / 1 / 2 / 5;
+    height: 45px;
+    width: 100%;
+    background-color: #663C12;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

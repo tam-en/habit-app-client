@@ -20,7 +20,6 @@ class HabitList extends Component {
     if(this.props.user){
       return (
           <div>
-            <p>Use map iterator to create a div of each of the user's habits. Also pass down props to the Habit Component</p>
             {habitList}
           </div>
         );
