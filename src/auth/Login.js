@@ -43,12 +43,12 @@ class Login extends Component {
             <h2>Welcome back! Please log in.</h2>
             <form onSubmit={this.handleSubmit}>
               <div>
-                <input name="Email" placeholder="What is your email?" value={this.state.email} onChange={this.handleEmailChange} />
+                <input name="Email" placeholder="your email" value={this.state.email} onChange={this.handleEmailChange} />
               </div>
               <div>
-                <input name="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
+                <input name="Password" type="password" placeholder="your password" value={this.state.password} onChange={this.handlePasswordChange} />
               </div>
-              <input type="submit" value="Log Me In!" className="button" />
+              <input type="submit" value="submit" className="button" />
             </form>
           </div>
         </div>

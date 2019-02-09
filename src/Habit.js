@@ -16,10 +16,10 @@ class Habit extends Component {
   render() {
     if(this.props.user){
       return (
-          <div>
-            <h4>This is a habit!</h4>
-            <p>{this.props.habit.name}</p>
-            <button onClick={()=>{this.props.changeCurrent(this.props.habit)}}>Details</button>
+          <div className="habitContainer">
+            <button onClick={()=>{this.props.changeCurrent(this.props.habit)}}>{this.props.habit.name}</button>
+
+
             {/*<Router>
               <div>
                 <Link to="/habit-detail"></Link>

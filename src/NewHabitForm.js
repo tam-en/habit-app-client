@@ -65,6 +65,7 @@ class NewHabitForm extends Component {
 				</div>
 				<input type="submit" value="Add New Habit" />
 				</form>
+				<hr />
 			</div>
 		)
 	}

@@ -44,18 +44,18 @@ class Signup extends Component {
     return(
       <div className="pageGrid">
         <div className="mainPageContent">
-            <h2>Sign up as a new user</h2>
+            <h2>Sign up!</h2>
             <form onSubmit={this.handleSubmit}>
               <div>
-                <input name="Name" placeholder="What is your name?" value={this.state.name} onChange={this.handleNameChange} />
+                <input name="Name" placeholder="your name" value={this.state.name} onChange={this.handleNameChange} />
               </div>
               <div>
-                <input name="Email" placeholder="What is your email?" value={this.state.email} onChange={this.handleEmailChange} />
+                <input name="Email" placeholder="your email" value={this.state.email} onChange={this.handleEmailChange} />
               </div>
               <div>
-                <input name="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
+                <input name="Password" type="password" placeholder="password" value={this.state.password} onChange={this.handlePasswordChange} />
               </div>
-              <input type="submit" value="Sign Me Up!" className="button" />
+              <input type="submit" value="submit" className="button" />
             </form>
           </div>
         </div>
