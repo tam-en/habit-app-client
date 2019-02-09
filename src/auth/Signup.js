@@ -42,20 +42,22 @@ class Signup extends Component {
       return (<Redirect to="/dashboard" />);
     }
     return(
-        <div>
-          <h2>Signup as a new user</h2>
-          <form onSubmit={this.handleSubmit}>
-            <div>
-              <input name="Name" placeholder="What is your name?" value={this.state.name} onChange={this.handleNameChange} />
-            </div>
-            <div>
-              <input name="Email" placeholder="What is your email?" value={this.state.email} onChange={this.handleEmailChange} />
-            </div>
-            <div>
-              <input name="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
-            </div>
-            <input type="submit" value="Sign Me Up!" className="button" />
-          </form>
+      <div className="pageGrid">
+        <div className="mainPageContent">
+            <h2>Sign up!</h2>
+            <form onSubmit={this.handleSubmit}>
+              <div>
+                <input name="Name" placeholder="your name" value={this.state.name} onChange={this.handleNameChange} />
+              </div>
+              <div>
+                <input name="Email" placeholder="your email" value={this.state.email} onChange={this.handleEmailChange} />
+              </div>
+              <div>
+                <input name="Password" type="password" placeholder="password" value={this.state.password} onChange={this.handlePasswordChange} />
+              </div>
+              <input type="submit" value="submit" className="button" />
+            </form>
+          </div>
         </div>
       );
   }

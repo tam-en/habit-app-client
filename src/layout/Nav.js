@@ -15,26 +15,27 @@ class Nav extends Component {
     if(this.props.user){
       links = (
           <span>
-            <a onClick={this.handleLogout}>Logout</a>
             <Link to="/dashboard">Dashboard</Link>
+            <a onClick={this.handleLogout}>Logout</a>
           </span>
         );
     }
     else {
       links = (
           <span>
-            <Link to="/login">Log In</Link>
-            <Link to="/signup">Sign Up</Link>
+            <Link to="/login">Log in</Link>
+            <Link to="/signup">Sign up</Link>
           </span>
         );
     }
     return(
-        <div>
-          <nav className="nav">
-            <Link to="/">Home</Link>
-            {links}
-          </nav>
-        </div>
+        <div className="anotherWholeGrid">
+        <div className="navBackground"></div>
+            <nav className="nav">
+              <Link to="/">Home</Link>
+              {links}
+            </nav>
+          </div>
       );
   }
 }
