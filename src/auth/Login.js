@@ -38,17 +38,19 @@ class Login extends Component {
       return (<Redirect to="/dashboard" />);
     }
     return(
-        <div>
-          <h2>Login as an existing user</h2>
-          <form onSubmit={this.handleSubmit}>
-            <div>
-              <input name="Email" placeholder="What is your email?" value={this.state.email} onChange={this.handleEmailChange} />
-            </div>
-            <div>
-              <input name="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
-            </div>
-            <input type="submit" value="Log Me In!" className="button" />
-          </form>
+      <div className="pageGrid">
+        <div className="mainPageContent">
+            <h2>Welcome back! Please log in.</h2>
+            <form onSubmit={this.handleSubmit}>
+              <div>
+                <input name="Email" placeholder="What is your email?" value={this.state.email} onChange={this.handleEmailChange} />
+              </div>
+              <div>
+                <input name="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
+              </div>
+              <input type="submit" value="Log Me In!" className="button" />
+            </form>
+          </div>
         </div>
       );
   }

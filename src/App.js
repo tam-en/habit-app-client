@@ -80,27 +80,28 @@ class App extends Component {
                     <EditHabitForm current={this.state.current}
                     rerender={this.getBounties}
                     changeCurrent={this.changeCurrent} 
-                    toggleForm={this.toggleForm} />
-                   
-
+                    toggleForm={this.toggleForm} />                
     return (
       <div className="App">
-        <Router>
-          <div className="container">
-            <Nav user={this.state.user} updateUser={this.getUser} />
-            <Route exact path="/" component={Home} />
-            <Route path="/login" component={
-              () => (<Login user={this.state.user} updateUser={this.getUser} />)
-            } />
-            <Route path="/signup" component={
-              () => (<Signup user={this.state.user} updateUser={this.getUser} />)
-            } />
-            <Route path="/dashboard" component={
-              () => (<Dashboard user={this.state.user} />)
-            } />
+        <div className="pageGuts">
+          <div className="trackSvg">
           </div>
-        </Router>
-        <Footer />
+          <Router>
+            <div className="wholeGrid">
+              <Nav user={this.state.user} updateUser={this.getUser} />
+              <Route exact path="/" component={Home} />
+              <Route path="/login" component={
+                () => (<Login user={this.state.user} updateUser={this.getUser} />)
+              } />
+              <Route path="/signup" component={
+                () => (<Signup user={this.state.user} updateUser={this.getUser} />)
+              } />
+              <Route path="/dashboard" component={
+                () => (<Dashboard user={this.state.user} />)
+              } />
+            </div>
+          </Router>
+          </div>
       </div>
     );
   }

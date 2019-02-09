@@ -48,15 +48,17 @@ class Dashboard extends Component {
     if(this.props.user){
       return (
         <Router>
-          <div>
-            <h2>{this.props.user.name}'s Habit Dashboard</h2>
-            {details}
-            <Route path="/NewHabitForm"component={
-              () => (<NewHabitForm user={this.state.user} onAdd={this.getHabits} />)
-            } />
-      <button><Link to= "/NewHabitForm">New Habit</Link></button>
-      <button onClick={this.props.toggleForm}>Edit</button>
-            {/* <NewHabitForm user={this.props.user} /> */}
+          <div className="pageGrid">
+            <div className="mainPageContent">
+              <h2>{this.props.user.name}&rsquo;s Habits:</h2>
+              {details}
+              <Route path="/NewHabitForm"component={
+                () => (<NewHabitForm user={this.state.user} onAdd={this.getHabits} />)
+              } />
+        <button><Link to= "/NewHabitForm">New Habit</Link></button>
+        <button onClick={this.props.toggleForm}>Edit</button>
+              {/* <NewHabitForm user={this.props.user} /> */}
+            </div>
           </div>
           </Router>
 
