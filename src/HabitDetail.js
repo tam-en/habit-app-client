@@ -43,7 +43,7 @@ class HabitDetail extends Component {
     .then(updatedHabit => {
       // console.log(json)
       console.log("ANSWER FROM SERVER:", updatedHabit);
-      //this.props.changeCurrent({})
+      this.props.changeCurrent({})
       // this.props.rerender()
     })
     .catch(err => {
