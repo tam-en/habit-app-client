@@ -58,14 +58,9 @@ class HabitDetail extends Component {
     })
   }
 
-<<<<<<< HEAD
   
   render() {
     
-=======
-  render() {
-
->>>>>>> 5d62eddffaa726ed94d54005445a5ba8f285f4a3
     let today = new Date();
     console.log("THIS.STATE UPON COMPLETIONS:", this.state)
     if(this.props.user){
@@ -93,6 +88,7 @@ class HabitDetail extends Component {
             <div>
               <Link to="/edit-habit">Edit This Habit</Link>
               <Route path="/edit-habit" component={() => (<EditHabitForm habit={this.props.habit} user={this.props.user} />)} />
+              <button onClick={this.deleteHabit}>Delete Habit</button>
             </div>
           </Router>
       </div>

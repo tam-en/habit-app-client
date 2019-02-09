@@ -22,13 +22,8 @@ class Habit extends Component {
             <button onClick={()=>{this.props.changeCurrent(this.props.habit)}}>Details</button>
             {/*<Router>
               <div>
-<<<<<<< HEAD
                 <Link to="/habit-detail">Details</Link>
                 <Route path="/habit-detail" component={() => (<HabitDetail rerender={this.props.rerender} habit={this.props.habit} user={this.props.user} />)}/>
-=======
-                <Link to="/habit-detail"></Link>
-                <Route path="/habit-detail" component={() => (<HabitDetail rerender={this.props.rerender} habit={this.props.habit} user={this.props.user}/>)}/>
->>>>>>> 5d62eddffaa726ed94d54005445a5ba8f285f4a3
               </div>
             </Router>*/}
           </div>
