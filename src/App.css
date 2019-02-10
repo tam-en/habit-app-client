@@ -1,14 +1,23 @@
+/*
+cloud white = #F2F6FC
+dark green = #1B5729
+light green = #569E3F
+brown = #663C12
+sky blue = #7AB0E2
+extra light blue = #C2DBF1
+extra light green = #A2CA96
+*/
+
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #72A954;
-/*  background-color: #65B6BE;
-*/  font-size: 15px;
+  background-color: #7AB0E2;
+  font-size: 15px;
   line-height: 1.5;
 }
 
 .pageGuts {
   display: grid;
-  grid-template-rows: 10000px;
+  grid-template-rows: 300vh;
   grid-template-columns: 10px 50px 1fr 20px;
 }
 
@@ -52,26 +61,27 @@ body {
 
 .nav {
   grid-area: 1 / 1 / 2 / 5;
-  height: 25px;
   width: 100%;
-  background-color: #663C12;
+  background-image: url("./images/clouds.svg");
+  background-repeat: repeat-x;
+  background-size: 200px;
   padding: 10px 0 10px 10px;
 }
 
 nav a {
-  margin: 10px 30px 10px 0px;
+  margin: 5px 30px 10px 0px;
   text-decoration: none;
   font-family: 'Open Sans Condensed', sans-serif;
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: .1em;
   font-size: 16px;
-  color: #FDF8EA;
+  color: #1B5729;
   cursor: pointer;
 }
 
 nav a:hover {
-  color: #C4D9A1;
+  color: #569E3F;
 }
 
 h3 {
@@ -94,23 +104,23 @@ input[type=button],
 input[type=submit],
 textarea {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
   margin: 5px 5px 5px 0;
   padding: 5px 10px;
-  background-color: #FDF8EA;
+  background-color: #F2F6FC;
   box-sizing: border-box;
-  border-top: 1px solid #663C12;
+  border: none;
+/*  border-top: 1px solid #663C12;
   border-left: 1px solid #663C12;
-  border-bottom: 2px solid #663C12;
-  border-right: 2px solid #663C12;
+*/  border-bottom: 2px solid #663C12;
+/*  border-right: 2px solid #663C12;
   border-radius: 4px;
-  outline: none;  
+*/  outline: none;  
 }
 
 input[type=date] {
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
-
 }
 
 input > .notes {
@@ -138,13 +148,13 @@ button,
   font-weight: 600;
   margin: 5px 5px 5px 0;
   padding: 5px 10px;
-  background-color: #FDF8EA;
+  background-color: #F2F6FC;
   border-top: 1px solid #663C12;
   border-left: 1px solid #663C12;
   border-bottom: 2px solid #663C12;
   border-right: 2px solid #663C12;
-  border-radius: 4px;
-  text-decoration: none;
+/*  border-radius: 4px;
+*/  text-decoration: none;
   color: black;
 }
 
@@ -159,22 +169,21 @@ button,
   font-weight: 600;
   margin: 5px 5px 5px 0;
   padding: 10px;
-  background-color: #FDF8EA;
-  border-top: 1px solid #663C12;
+  background-color: #F2F6FC;
+/*  border-top: 1px solid #663C12;
   border-left: 1px solid #663C12;
-  border-bottom: 2px solid #663C12;
-  border-right: 2px solid #663C12;
-  border-radius: 4px;
-  text-transform: uppercase;
+*/  border-bottom: 2px solid #663C12;
+/*  border-right: 2px solid #663C12;
+    border-radius: 4px;
+*/  text-transform: uppercase;
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 800;
   letter-spacing: .05em;
 }
 
 .habitContainer > button:hover {
-  background-color: #C4D9A1;  
+  background-color: #F2F6FC;  
 }
-
 
 .habitTitle {
   font-size: 15px;
@@ -203,6 +212,19 @@ hr {
     margin-left: 10px;
     margin-top: 43px;
 }
+
+.trees {
+  grid-area: 1 / 1 / 2 / 5;
+  background-image: url("./images/pine-trees-right.svg");
+  background-position: right;
+  background-size: 200px;
+  background-repeat: no-repeat;
+  position: relative;
+  right: -10px;
+  bottom: 90vh;
+  z-index: -10;
+}
+
 
 @media only screen and (min-width: 900px) {
   .mainTitle {
@@ -246,15 +268,30 @@ hr {
 
   .nav {
     grid-area: 1 / 2 / 2 / 5;
+    background-image: url("");
   }
 
   .navBackground {
+    background-image: url("./images/clouds.svg");
+    background-repeat: repeat-x;
     grid-area: 1 / 1 / 2 / 5;
-    height: 45px;
-    width: 100%;
-    background-color: #663C12;
+    background-size: 200px;
+  }
+
+  .trees {
+    grid-area: 1 / 1 / 2 / 5;
+    background-position: left;
+    background-size: 200px;
+    background-repeat: no-repeat;
+    position: relative;
+    left: 0px;
+    bottom: 90vh;
+    z-index: -10;
+    background-image: url("./images/pine-trees.svg");
   }
 }
+
+
 
 
 

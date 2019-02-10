@@ -89,6 +89,8 @@ class App extends Component {
           </div>
           <div className="trackSvg">
           </div>
+          <div className="trees">
+          </div>
           <Router>
             <div className="wholeGrid">
               <Nav user={this.state.user} updateUser={this.getUser} />
