@@ -63,7 +63,6 @@ class Dashboard extends Component {
             </div>
           </div>
           </Router>
-
         );
     }
     return(
@@ -74,5 +73,4 @@ class Dashboard extends Component {
       );
   }
 }
-
 export default Dashboard;
