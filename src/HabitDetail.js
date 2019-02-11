@@ -45,6 +45,7 @@ class HabitDetail extends Component {
       console.log("ANSWER FROM SERVER:", updatedHabit);
       this.props.changeCurrent({})
       // this.props.rerender()
+      this.props.onAdd()
     })
     .catch(err => {
       console.log('Error posting completion data!', err)
@@ -57,8 +58,9 @@ class HabitDetail extends Component {
     })
   }
 
+  
   render() {
-
+    
     let today = new Date();
     console.log("THIS.STATE UPON COMPLETIONS:", this.state)
     if(this.props.user){
@@ -87,6 +89,7 @@ class HabitDetail extends Component {
             <div>
               <Link className="somethingBuggy" to="/edit-habit">Edit This Habit</Link>
               <Route path="/edit-habit" component={() => (<EditHabitForm habit={this.props.habit} user={this.props.user} />)} />
+              <button onClick={this.deleteHabit}>Delete Habit</button>
             </div>
           </Router>
       </div>
