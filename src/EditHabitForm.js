@@ -50,7 +50,7 @@ class EditHabitForm extends Component {
   deleteHabit = (e) => {
   	e.preventDefault()
 	  // The will run on the delete button click and fetch the delete habit route
-	  fetch(SERVER_URL+'/habits/'+this.props.habit.id, {
+	  fetch(SERVER_URL+'/habits/'+this.props.habit._id, {
 		method: 'DELETE'
 	})
 	.then(response => {
