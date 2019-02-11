@@ -6,20 +6,17 @@ import SERVER_URL from './constants/server';
 class EditHabitForm extends Component {
 
   constructor(props){
-		super(props)
-		this.state = {
-			name: "",
-			timesPerDay: 0,
-			description: "",
-			days: [],
-			user: props.user.id,
-			habit: props.habit,
-		}
+	super(props)
+	this.state = {
+		name: "",
+		timesPerDay: 0,
+		description: "",
+		days: [],
+		user: props.user.id,
+		habit: props.habit,
+	}
   }
 
-
-
-  
   storeInput = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
@@ -50,7 +47,8 @@ class EditHabitForm extends Component {
   }
 
 
-  deleteHabit = () => {
+  deleteHabit = (e) => {
+  	e.preventDefault()
 	  // The will run on the delete button click and fetch the delete habit route
 	  fetch(SERVER_URL+'/habits/'+this.props.user.id, {
 		method: 'DELETE'
@@ -66,9 +64,6 @@ class EditHabitForm extends Component {
 		console.log("Error Deleteing bounty", err)
 	})
 }
-
-  	
-  
 
   render() {
 	  <habit />
@@ -88,7 +83,10 @@ class EditHabitForm extends Component {
 					<label>Description</label>
 					<input name="description" type="text" onChange={this.storeInput} value={this.state.description} />
 				</div>
-				<input type="submit" value="Edit New Habit" />
+				<input type="submit" value="Save Changes" />
+				</form>
+				<form onSubmit={this.deleteHabit} >
+					<input type="submit" value="Delete This Habit" />
 				</form>
 			</div>
 		)
