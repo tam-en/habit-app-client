@@ -38,7 +38,10 @@ class NewHabitForm extends Component {
 		.then(json => {
 			// console.log(json)
 			console.log("THIS:", this.props)
+			// onAdd is getHabits from the parent componenets
 			this.props.onAdd();
+			// function to go back to HabitList
+			this.props.showHabitList();
 		})
 		.catch(err => {
 			console.log('Error posting data!', err)
