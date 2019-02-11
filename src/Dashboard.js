@@ -52,7 +52,7 @@ class Dashboard extends Component {
   }
 
   render() {
-    const details = this.state.currentHabit._id ? <HabitDetail changeCurrent={this.changeCurrent} currentHabit={this.state.currentHabit} user={this.props.user} /> : <HabitList user={this.props.user} habits={this.state.habits} changeCurrent={this.changeCurrent} />
+    const details = this.state.currentHabit._id ? <HabitDetail changeCurrent={this.changeCurrent} currentHabit={this.state.currentHabit} user={this.props.user} habit={this.state.currentHabit} /> : <HabitList user={this.props.user} habits={this.state.habits} changeCurrent={this.changeCurrent} />
     const headerText = this.state.currentHabit._id ? ": "+ this.state.currentHabit.name : "s:"
     if(this.state.newHabit === false){
       if(this.props.user){

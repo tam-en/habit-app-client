@@ -66,8 +66,7 @@ class HabitDetail extends Component {
     if(this.props.user){
       return(
         <div>
-{/*        <h3>{this.props.currentHabit.name}</h3>
-*/}        <h4>Enter details on how many times you did &ldquo;<strong>{this.props.currentHabit.name}</strong>&rdquo; on a particular day:</h4>
+          <h4>Enter details on how many times you did &ldquo;<strong>{this.props.currentHabit.name}</strong>&rdquo; on a particular day:</h4>
           <form onSubmit={this.newDay} >
           <div>
             <span><strong>Date: </strong></span>
@@ -83,6 +82,8 @@ class HabitDetail extends Component {
           </div>
           <input type="submit" value="submit" />
           </form>
+          <hr />
+          <h1>{this.props.habit.name}</h1>
           <hr />
           <button className="button" onClick={()=>{this.props.changeCurrent({})}}>go back to list of habits</button>
           <Router>
