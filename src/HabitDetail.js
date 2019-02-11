@@ -9,7 +9,7 @@ class HabitDetail extends Component {
     super(props)
     this.state = {
       habit: props.habit,
-      date: new Date(),
+      date: new Date().toDateString(),
       completions: 0,
       notes: "",
       currentHabit: {}
@@ -57,14 +57,16 @@ class HabitDetail extends Component {
       [e.target.name]: e.target.value
     })
   }
-
   
+  
+
   render() {
     
     let today = new Date();
     const days = this.props.currentHabit.days.map((d) => {
-      return <li>{d.date}: {d.completions}</li>
-    })
+      let convertedDate = new Date(d.date)
+         return <li>{convertedDate.toDateString()}: {d.completions}</li>
+       })
     console.log("THIS.STATE UPON COMPLETIONS:", this.state)
     if(this.props.user){
       return(
@@ -88,7 +90,10 @@ class HabitDetail extends Component {
           <hr />
           <h2>History Logs</h2>
           <ul>
-            {days}
+            
+          {days}
+
+            
           </ul>
           <hr />
           <button className="button" onClick={()=>{this.props.changeCurrent({})}}>go back to list of habits</button>
