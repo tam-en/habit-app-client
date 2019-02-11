@@ -54,43 +54,6 @@ class Dashboard extends Component {
   render() {
     const details = this.state.currentHabit._id ? <HabitDetail changeCurrent={this.changeCurrent} currentHabit={this.state.currentHabit} user={this.props.user} habit={this.state.currentHabit} /> : <HabitList user={this.props.user} habits={this.state.habits} changeCurrent={this.changeCurrent} />
     const headerText = this.state.currentHabit._id ? ": "+ this.state.currentHabit.name : "s:"
-<<<<<<< HEAD
-    if(this.props.user){
-      return (
-        <Router>
-<<<<<<< HEAD
-          <div>
-            <h2>{this.props.user.name}'s Habit Dashboard</h2>
-            {details}
-            <Route path="/NewHabitForm"component={
-              () => (<NewHabitForm user={this.state.user} onAdd={this.getHabits} />)
-            } />
-      <button><Link to= "/NewHabitForm">New Habit</Link></button>
-            {/* <NewHabitForm user={this.props.user} /> */}
-=======
-          <div className="pageGrid">
-            <div className="mainPageContent">
-              <h2>{this.props.user.name}&rsquo;s habit{headerText}</h2>
-              {details}
-              <hr />
-              <Route path="/NewHabitForm"component={
-                () => (<NewHabitForm user={this.state.user} onAdd={this.getHabits} />)
-              } />
-        <button><Link className="buttonLink" to= "/NewHabitForm">Create New Habit</Link></button><br />
-        <button className="somethingBuggy" onClick={this.props.toggleForm}>Edit </button>
-              {/* <NewHabitForm user={this.props.user} /> */}
-            </div>
->>>>>>> daab1fc1c22bae29980000a4589feb6f1e741383
-          </div>
-          </Router>
-        );
-    }
-    return(
-      <div>
-        <p>This is a dashboard page. You must be logged in to see it.</p>
-        <p>Would you like to <a href="/login">Log In</a> or <a href="/signup">Sign up</a>?</p>
-      </div>
-=======
     if(this.state.newHabit === false){
       if(this.props.user){
         return (
@@ -114,7 +77,6 @@ class Dashboard extends Component {
           <p>This is a dashboard page. You must be logged in to see it.</p>
           <p>Would you like to <a href="/login">Log In</a> or <a href="/signup">Sign up</a>?</p>
         </div>
->>>>>>> 425d6530e54f70de4928e6dc7a1c993230b020ef
       );
       } else {
         return(<NewHabitForm user={this.props.user} />) 
