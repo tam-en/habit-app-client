@@ -83,8 +83,8 @@ nav a {
   text-decoration: none;
   font-family: 'Open Sans', sans-serif;
   text-transform: lowercase;
-  font-weight: 800;
-  font-size: 17px;
+  font-weight: 600;
+  font-size: 15px;
   color: black;
 /*  color: #1B5729;
 */  cursor: pointer;
@@ -123,12 +123,8 @@ textarea {
   background-color: #F2F6FC;
   box-sizing: border-box;
   border: none;
-/*  border-top: 1px solid #663C12;
-  border-left: 1px solid #663C12;
-*/  border-bottom: 2px solid gray;
-/*  border-right: 2px solid #663C12;
-  border-radius: 4px;
-*/  outline: none;  
+  border-bottom: 2px solid gray;
+  outline: none;  
 }
 
 input[type=date] {
@@ -163,9 +159,9 @@ textarea:hover {
 input[type=submit],
 button,
 .button {
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: 800;
+  font-size: 13px;
+  text-transform: lowercase;
+  font-weight: 600;
   margin: 5px 5px 5px 0;
   padding: 7px 10px;
   background-color: #C2DBF1;
@@ -173,8 +169,7 @@ button,
   border-left: 1px solid gray;
   border-bottom: 1px solid gray;
   border-right: 1px solid gray;
-/*  border-radius: 4px;
-*/  text-decoration: none;
+  text-decoration: none;
   color: black;
 }
 
@@ -197,19 +192,14 @@ button:hover {
 
 .habitContainer > button {
   min-width: 200px;  
-  font-size: 17px;
+  font-size: 16px;
   margin: 5px 5px 5px 0;
   padding: 10px;
   background-color: #C2DBF1;
-/*  border-top: 1px solid #663C12;
-  border-left: 1px solid #663C12;
-*/  border-bottom: 2px solid gray;
-/*  border-right: 2px solid #663C12;
-    border-radius: 4px;
-*/  text-transform: uppercase;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-weight: 800;
-  letter-spacing: .05em;
+  border-bottom: 2px solid gray;
+  text-transform: lowercase;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
 }
 
 .habitContainer > button:hover {
