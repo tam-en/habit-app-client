@@ -50,7 +50,7 @@ class EditHabitForm extends Component {
   deleteHabit = (e) => {
   	e.preventDefault()
 	  // The will run on the delete button click and fetch the delete habit route
-	  fetch(SERVER_URL+'/habits/'+this.props.user.id, {
+	  fetch(SERVER_URL+'/habits/'+this.props.habit.id, {
 		method: 'DELETE'
 	})
 	.then(response => {
@@ -61,7 +61,7 @@ class EditHabitForm extends Component {
 		this.props.rerender()
 	})
 	.catch(err=>{
-		console.log("Error Deleteing bounty", err)
+		console.log("Error Deleteing habit", err)
 	})
 }
 
