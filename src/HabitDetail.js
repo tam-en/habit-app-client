@@ -62,6 +62,9 @@ class HabitDetail extends Component {
   render() {
     
     let today = new Date();
+    const days = this.props.currentHabit.days.map((d) => {
+      <span>{d.date}: {d.completions}</span>
+    })
     console.log("THIS.STATE UPON COMPLETIONS:", this.state)
     if(this.props.user){
       return(
@@ -83,7 +86,12 @@ class HabitDetail extends Component {
           <input type="submit" value="submit" />
           </form>
           <hr />
-          <h1>{this.props.habit.name}</h1>
+          <h2>History Logs</h2>
+          <ul>
+            <li>Test!</li>
+            <li>{this.props.currentHabit.name}</li>
+            <li>{days}</li>
+          </ul>
           <hr />
           <button className="button" onClick={()=>{this.props.changeCurrent({})}}>go back to list of habits</button>
           <Router>
