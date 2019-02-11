@@ -67,14 +67,14 @@ class HabitDetail extends Component {
       return(
         <div>
 {/*        <h3>{this.props.currentHabit.name}</h3>
-*/}        <h4>Enter details on how many times you did &ldquo;{this.props.currentHabit.name}&rdquo; on a particular day:</h4>
+*/}        <h4>Enter details on how many times you did &ldquo;<strong>{this.props.currentHabit.name}</strong>&rdquo; on a particular day:</h4>
           <form onSubmit={this.newDay} >
           <div>
             <span><strong>Date: </strong></span>
             <input type="date" name="date" onChange={this.storeInput} value={this.state.date} />
-          </div>
-          <div>
-            <span><strong>Times completed: </strong></span>
+   {/*       </div>
+          <div>*/}
+            <span><strong>  Times completed: </strong></span>
             <input name="completions" type="number" min="0" max="100" step="1"
             onChange={this.storeInput} value={this.state.completions} />
           </div>
@@ -83,6 +83,7 @@ class HabitDetail extends Component {
           </div>
           <input type="submit" value="submit" />
           </form>
+          <hr />
           <button className="button" onClick={()=>{this.props.changeCurrent({})}}>go back to list of habits</button>
           <Router>
             <div>

@@ -40,7 +40,7 @@ class Login extends Component {
     return(
       <div className="pageGrid">
         <div className="mainPageContent">
-            <h2>Welcome back! Please log in.</h2>
+            <h2>Welcome back!</h2>
             <form onSubmit={this.handleSubmit}>
               <div>
                 <input name="Email" placeholder="your email" value={this.state.email} onChange={this.handleEmailChange} />
