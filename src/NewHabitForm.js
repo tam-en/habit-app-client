@@ -50,28 +50,24 @@ class NewHabitForm extends Component {
 	
 	render(){
 		return(
-			<div className="newHabitFormGrid">
-	            <div className="mainPageContent">
-		            <h2>Create a new habit</h2>
-					<form onSubmit={this.newHabit} >
-						<div>
-							<label>New habit name: </label>
-							<input type="text" placeholder="Name of daily habit" name="name" onChange={this.storeInput} value={this.state.name} />
-						</div>
-						<div>
-							<label>Times per day goal: </label>
-							<input name="timesPerDay" type="number" min="1" max="100" step="1" placeholder="Times per day goal" 
-							onChange={this.storeInput} value={this.state.timesPerDay} />
-						</div>
-						<div>
-							<label>Description: </label>
-							<textarea name="description" type="text" placeholder="description" className="textField" onChange={this.storeInput} value={this.state.description} />
-						</div>
-						<input type="submit" value="Submit" />
-					</form>
-
-				</div>
-				
+			<div>
+	            <h2>Create a new habit</h2>
+				<form onSubmit={this.newHabit} >
+					<div>
+						<label>New habit name: </label>
+						<input type="text" placeholder="Name of daily habit" name="name" onChange={this.storeInput} value={this.state.name} />
+					</div>
+					<div>
+						<label>Times per day goal: </label>
+						<input name="timesPerDay" type="number" min="1" max="100" step="1" placeholder="Times per day goal" 
+						onChange={this.storeInput} value={this.state.timesPerDay} />
+					</div>
+					<div>
+						<label>Description: </label>
+						<textarea name="description" type="text" placeholder="description" className="textField" onChange={this.storeInput} value={this.state.description} />
+					</div>
+					<input type="submit" value="Submit" />
+				</form>				
 			</div>
 		)
 	}

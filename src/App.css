@@ -55,12 +55,6 @@ strong {
   grid-template-rows: 10000px;
   grid-template-columns: 10px 50px 1fr 20px;
 }
-.newHabitFormGrid {
-  grid-area: 1 / 1 / 2 / 5; 
-  display: grid;
-  grid-template-rows: 10000px;
-  grid-template-columns: 10px 50px 1fr 20px;
-}
 
 .pageGrid {
   grid-area: 1 / 1 / 2 / 5;   
@@ -278,10 +272,6 @@ hr {
 
   .anotherWholeGrid {
     grid-template-columns: 1fr 50px 3fr 1fr;
-  }
-
-  .newHabitFormGrid {
-     grid-template-columns: 1fr 50px 3fr 1fr;   
   }
 
   .pageGrid {
