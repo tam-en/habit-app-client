@@ -52,7 +52,7 @@ class Dashboard extends Component {
   }
 
   render() {
-    const details = this.state.currentHabit._id ? <HabitDetail changeCurrent={this.changeCurrent} currentHabit={this.state.currentHabit} user={this.props.user} /> : <HabitList user={this.props.user} habits={this.state.habits} changeCurrent={this.changeCurrent} />
+    const details = this.state.currentHabit._id ? <HabitDetail changeCurrent={this.changeCurrent} currentHabit={this.state.currentHabit} user={this.props.user} habit={this.state.currentHabit} /> : <HabitList user={this.props.user} habits={this.state.habits} changeCurrent={this.changeCurrent} />
     const headerText = this.state.currentHabit._id ? ": "+ this.state.currentHabit.name : "s:"
 <<<<<<< HEAD
     if(this.props.user){
@@ -103,9 +103,7 @@ class Dashboard extends Component {
                 <Route path="/NewHabitForm"component={
                   () => (<NewHabitForm user={this.state.user} onAdd={this.getHabits} />)
                 } />
-          <button onClick={this.showNewHabitForm} ><Link className="buttonLink" to="/NewHabitForm">Create New Habit</Link></button><br />
-          <button className="somethingBuggy" onClick={this.props.toggleForm}>Edit </button>
-                {/* <NewHabitForm user={this.props.user} /> */}
+                <button onClick={this.showNewHabitForm} ><Link className="buttonLink" to="/NewHabitForm">Create New Habit</Link></button><br />
               </div>
             </div>
             </Router>
