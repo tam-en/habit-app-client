@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import HabitDetail from './HabitDetail';
-
 
 class Habit extends Component {
 
@@ -18,14 +16,6 @@ class Habit extends Component {
       return (
           <div className="habitContainer">
             <button onClick={()=>{this.props.changeCurrent(this.props.habit)}}>{this.props.habit.name}</button>
-
-
-            {/*<Router>
-              <div>
-                <Link to="/habit-detail">Details</Link>
-                <Route path="/habit-detail" component={() => (<HabitDetail rerender={this.props.rerender} habit={this.props.habit} user={this.props.user} />)}/>
-              </div>
-            </Router>*/}
           </div>
         );
     }
