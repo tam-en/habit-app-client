@@ -11,17 +11,25 @@ class Dashboard extends Component {
     this.state = {
       user: props.user,
       habits: [],
-      currentHabit: {}
+      currentHabit: {},
+      newHabit: false
     }
   }
+
+
 
   componentDidMount() {
     if(this.state.user){
       console.log("found user", this.props.user)
       this.getHabits()
+      this.setState({newHabit: false})
     } else {
       console.log("no user yet")
     }
+  }
+
+  showNewHabitForm = () => {
+    this.setState({newHabit: true})
   }
 
   getHabits = () => {
@@ -46,31 +54,35 @@ class Dashboard extends Component {
   render() {
     const details = this.state.currentHabit._id ? <HabitDetail changeCurrent={this.changeCurrent} currentHabit={this.state.currentHabit} user={this.props.user} /> : <HabitList user={this.props.user} habits={this.state.habits} changeCurrent={this.changeCurrent} />
     const headerText = this.state.currentHabit._id ? ": "+ this.state.currentHabit.name : "s:"
-    if(this.props.user){
-      return (
-        <Router>
-          <div className="pageGrid">
-            <div className="mainPageContent">
-              <h2>{this.props.user.name}&rsquo;s habit{headerText}</h2>
-              {details}
-              <hr />
-              <Route path="/NewHabitForm"component={
-                () => (<NewHabitForm user={this.state.user} onAdd={this.getHabits} />)
-              } />
-        <button><Link className="buttonLink" to= "/NewHabitForm">Create New Habit</Link></button><br />
-        <button className="somethingBuggy" onClick={this.props.toggleForm}>Edit </button>
-              {/* <NewHabitForm user={this.props.user} /> */}
+    if(this.state.newHabit === false){
+      if(this.props.user){
+        return (
+          <Router>
+            <div className="pageGrid">
+              <div className="mainPageContent">
+                <h2>{this.props.user.name}&rsquo;s habit{headerText}</h2>
+                {details}
+                <hr />
+                <Route path="/NewHabitForm"component={
+                  () => (<NewHabitForm user={this.state.user} onAdd={this.getHabits} />)
+                } />
+          <button onClick={this.showNewHabitForm} ><Link className="buttonLink" to="/NewHabitForm">Create New Habit</Link></button><br />
+          <button className="somethingBuggy" onClick={this.props.toggleForm}>Edit </button>
+                {/* <NewHabitForm user={this.props.user} /> */}
+              </div>
             </div>
-          </div>
-          </Router>
-        );
-    }
-    return(
-      <div>
-        <p>This is a dashboard page. You must be logged in to see it.</p>
-        <p>Would you like to <a href="/login">Log In</a> or <a href="/signup">Sign up</a>?</p>
-      </div>
+            </Router>
+          );
+      }
+      return(
+        <div>
+          <p>This is a dashboard page. You must be logged in to see it.</p>
+          <p>Would you like to <a href="/login">Log In</a> or <a href="/signup">Sign up</a>?</p>
+        </div>
       );
+      } else {
+        return(<NewHabitForm user={this.props.user} />) 
+    }
   }
 }
 export default Dashboard;
