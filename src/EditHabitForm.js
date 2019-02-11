@@ -26,20 +26,19 @@ class EditHabitForm extends Component {
   editHabit = (e) => {
     // Fetch route to edit a habit
     console.log("THIS.STATE UPON FORM SUBMIT", this.state)
-		e.preventDefault()
-		// console.log(this.state) 
-		fetch(SERVER_URL+'/habits/'+this.props.user.id, {
-			method: 'PUT',
-			body: JSON.stringify(this.state), // data to send to server
-			headers: {
-				'Content-Type': 'application/json' // let the server know what's coming
-			}
-		})
-		.then(response => response.text())
+	e.preventDefault()
+	// console.log(this.state) 
+	fetch(SERVER_URL+'/habits/'+this.props.user.id, {
+		method: 'PUT',
+		body: JSON.stringify(this.state), // data to send to server
+		headers: {
+			'Content-Type': 'application/json' // let the server know what's coming
+		}
+	})
+	.then(response => response.text())
     .then(json=>{
-		console.log("THIS:", this.props)
-      console.log(json)
-      this.setState({habits: json})
+    	this.setState({habits: json})
+    	this.props.rerender();
     })
     .catch(err=>{
       console.log("Error fetching habits!", err)
@@ -49,16 +48,18 @@ class EditHabitForm extends Component {
 
   deleteHabit = (e) => {
   	e.preventDefault()
-	  // The will run on the delete button click and fetch the delete habit route
-	  fetch(SERVER_URL+'/habits/'+this.props.habit._id, {
+	// The will run on the delete button click and fetch the delete habit route
+  	fetch(SERVER_URL+'/habits/'+this.props.habit._id, {
 		method: 'DELETE'
 	})
 	.then(response => {
 		let responseJSON = response.status===204 ? {} : response.json()
+		console.log(response.status)
 		return responseJSON
 	})
 	.then(json =>{
-		this.props.rerender()
+		console.log("Trying to delete", this.props.habit.name);
+		this.props.rerender();
 	})
 	.catch(err=>{
 		console.log("Error Deleteing habit", err)

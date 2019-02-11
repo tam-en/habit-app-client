@@ -44,8 +44,7 @@ class HabitDetail extends Component {
       // console.log(json)
       console.log("ANSWER FROM SERVER:", updatedHabit);
       this.props.changeCurrent({})
-      // this.props.rerender()
-      this.props.onAdd()
+      this.props.rerender();
     })
     .catch(err => {
       console.log('Error posting completion data!', err)
@@ -100,8 +99,7 @@ class HabitDetail extends Component {
           <Router>
             <div>
               <Link className="somethingBuggy" to="/edit-habit">Edit This Habit</Link>
-              <Route path="/edit-habit" component={() => (<EditHabitForm habit={this.props.habit} user={this.props.user} />)} />
-              <button onClick={this.deleteHabit}>Delete Habit</button>
+              <Route path="/edit-habit" component={() => (<EditHabitForm habit={this.props.habit} user={this.props.user} rerender={this.props.rerender} />)} />
             </div>
           </Router>
       </div>

@@ -40,7 +40,10 @@ class Dashboard extends Component {
     })
     .then(json=>{
       console.log(json)
-      this.setState({habits: json})
+      this.setState({
+        habits: json,
+        newHabit: false
+      });
     })
     .catch(err=>{
       console.log("Error fetching habits!", err)
@@ -52,8 +55,9 @@ class Dashboard extends Component {
   }
 
   render() {
-    const details = this.state.currentHabit._id ? <HabitDetail changeCurrent={this.changeCurrent} currentHabit={this.state.currentHabit} user={this.props.user} habit={this.state.currentHabit} /> 
-    : <HabitList user={this.props.user} habits={this.state.habits} changeCurrent={this.changeCurrent} getHabits={this.getHabits} />
+    const details = this.state.currentHabit._id 
+      ? <HabitDetail changeCurrent={this.changeCurrent} currentHabit={this.state.currentHabit} user={this.props.user} habit={this.state.currentHabit} rerender={this.getHabits} /> 
+      : <HabitList user={this.props.user} habits={this.state.habits} changeCurrent={this.changeCurrent} getHabits={this.getHabits} />
     const headerText = this.state.currentHabit._id ? ": "+ this.state.currentHabit.name : "s:"
     if(this.state.newHabit === false){
       if(this.props.user){
