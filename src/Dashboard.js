@@ -52,7 +52,8 @@ class Dashboard extends Component {
   }
 
   render() {
-    const details = this.state.currentHabit._id ? <HabitDetail changeCurrent={this.changeCurrent} currentHabit={this.state.currentHabit} user={this.props.user} habit={this.state.currentHabit} /> : <HabitList user={this.props.user} habits={this.state.habits} changeCurrent={this.changeCurrent} />
+    const details = this.state.currentHabit._id ? <HabitDetail changeCurrent={this.changeCurrent} currentHabit={this.state.currentHabit} user={this.props.user} habit={this.state.currentHabit} /> 
+    : <HabitList user={this.props.user} habits={this.state.habits} changeCurrent={this.changeCurrent} getHabits={this.getHabits} />
     const headerText = this.state.currentHabit._id ? ": "+ this.state.currentHabit.name : "s:"
     if(this.state.newHabit === false){
       if(this.props.user){
@@ -62,11 +63,6 @@ class Dashboard extends Component {
               <div className="mainPageContent">
                 <h2>{this.props.user.name}&rsquo;s habit{headerText}</h2>
                 {details}
-                <hr />
-                <Route path="/NewHabitForm"component={
-                  () => (<NewHabitForm user={this.state.user} onAdd={this.getHabits} />)
-                } />
-                <button onClick={this.showNewHabitForm} ><Link className="buttonLink" to="/NewHabitForm">Create New Habit</Link></button><br />
               </div>
             </div>
             </Router>

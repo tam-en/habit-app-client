@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Habit from './Habit';
+import NewHabitForm from './NewHabitForm';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class HabitList extends Component {
 
@@ -8,8 +10,17 @@ class HabitList extends Component {
     this.state = {
       user: props.user,
       habits: [],
-      currentHabit: {}
+      currentHabit: {},
+      showNew: false
     }
+  }
+
+  showNewHabitForm = () => {
+    this.setState({showNew: true})
+  }
+
+  showHabitList = () => {
+    this.setState({showNew: false})
   }
 
   render() {
@@ -18,12 +29,18 @@ class HabitList extends Component {
     });
 
     if(this.props.user){
-      return (
+      if(this.state.showNew === false){
+        return (
           <div>
+            <button onClick={this.showNewHabitForm} ><Link className="buttonLink" to="/NewHabitForm">Create New Habit</Link></button>
+            <hr />
             {habitList}
           </div>
         );
-    }2
+      } else {
+        return(<NewHabitForm user={this.state.user} onAdd={this.props.getHabits} showHabitList={this.showHabitList} />)
+      }
+    }
     return(
       <div>
         <p>This is a habit page. You must be logged in to see it.</p>
