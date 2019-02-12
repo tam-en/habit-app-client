@@ -26,6 +26,10 @@ strong {
   font-weight: 600;
 }
 
+table {
+  width: 100%;
+}
+
 table, th, td {
   border-bottom: 1px solid black;
   border-right: 1px solid black;
@@ -33,6 +37,11 @@ table, th, td {
   padding: 5px 10px 0 10px;
   text-align: left;
 }
+
+table, .outside {
+  border-right: none;
+}
+
 
 .pageGuts {
   display: grid;
@@ -317,7 +326,6 @@ hr {
   nav a {
     margin: 3px 30px 10px 0px;
   }
-
 }
 
 @media only screen and (min-width: 900px) {
@@ -333,17 +341,3 @@ hr {
     margin-top: 60px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

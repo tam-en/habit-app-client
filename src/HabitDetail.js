@@ -74,7 +74,7 @@ class HabitDetail extends Component {
           <td>
             {d.completions}
           </td>
-          <td>
+          <td className="outside">
             {d.notes}
           </td>
         </tr>
@@ -105,10 +105,10 @@ class HabitDetail extends Component {
           <table>
             <tr>
               <th>Date</th>
-              <th>Times completed</th> 
-              <th>Notes</th>
+              <th>Times done</th> 
+              <th className="outside">Notes</th>
             </tr>
-            
+
             {days}
 
           </table>
@@ -117,7 +117,7 @@ class HabitDetail extends Component {
           <Router>
             <div>
             <br />
-              <Link className="button" to="/edit-habit">Edit This Habit</Link>
+              <Link className="button" to="/edit-habit">Edit or Delete This Habit</Link>
               <Route path="/edit-habit" component={() => (<EditHabitForm habit={this.props.habit} user={this.props.user} changeCurrent={this.props.changeCurrent} rerender={this.props.rerender} />)} />
             </div>
           </Router>

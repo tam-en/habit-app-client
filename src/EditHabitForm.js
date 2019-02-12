@@ -73,18 +73,21 @@ class EditHabitForm extends Component {
     return(
 			<div>
 				<form onSubmit={this.editHabit} >
+				<hr />
+				<h2>Edit current habit</h2>
+			
 				<div>
-					<label>Name</label>
-					<input type="text" placeholder="What's the name of your new daily habit?" name="name" onChange={this.storeInput} value={this.state.name} />
+					<label>Name: </label>
+					<input type="text" placeholder="New name for this habit" name="name" onChange={this.storeInput} value={this.state.name} />
 				</div>
 				<div>
-					<label>Times Per Day Goal</label>
-					<input name="timesPerDay" type="number" min="1" max="100" step="1" placeholder="How many times per day would be ideal?" 
+					<label>Times per day goal: </label>
+					<input name="timesPerDay" type="number" min="1" max="100" step="1" placeholder="New goal for this habit" 
 					onChange={this.storeInput} value={this.state.timesPerDay} />
 				</div>
 				<div>
-					<label>Description</label>
-					<input name="description" type="text" onChange={this.storeInput} value={this.state.description} />
+					<label>Description: </label>
+					<textarea name="description" type="text" onChange={this.storeInput} placeholder="description" value={this.state.description} />
 				</div>
 				<input type="submit" value="Save Changes" />
 				</form>
