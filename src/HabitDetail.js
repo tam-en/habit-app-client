@@ -94,7 +94,7 @@ class HabitDetail extends Component {
           <Router>
             <div>
               <Link className="somethingBuggy" to="/edit-habit">Edit This Habit</Link>
-              <Route path="/edit-habit" component={() => (<EditHabitForm habit={this.props.habit} user={this.props.user} rerender={this.props.rerender} />)} />
+              <Route path="/edit-habit" component={() => (<EditHabitForm habit={this.props.habit} user={this.props.user} changeCurrent={this.props.changeCurrent} rerender={this.props.rerender} />)} />
             </div>
           </Router>
       </div>

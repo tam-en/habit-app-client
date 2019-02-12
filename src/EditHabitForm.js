@@ -37,8 +37,9 @@ class EditHabitForm extends Component {
 	})
 	.then(response => response.text())
     .then(json=>{
-    	this.setState({habits: json})
+    	this.setState({habits: json});
     	this.props.rerender();
+    	this.props.changeCurrent({});
     })
     .catch(err=>{
       console.log("Error fetching habits!", err)
@@ -59,6 +60,7 @@ class EditHabitForm extends Component {
 	})
 	.then(json =>{
 		console.log("Trying to delete", this.props.habit.name);
+		this.props.changeCurrent({});
 		this.props.rerender();
 	})
 	.catch(err=>{
