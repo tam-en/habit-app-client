@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import SERVER_URL from './constants/server';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import EditHabitForm from './EditHabitForm';
-import Dashboard from './Dashboard';
 
 class HabitDetail extends Component {
   constructor(props){
@@ -64,7 +63,14 @@ class HabitDetail extends Component {
     let today = new Date();
     const days = this.props.currentHabit.days.map((d) => {
       let convertedDate = new Date(d.date)
-         return <li>{convertedDate.toDateString()}: {d.completions}</li>
+         return <li>
+            <div>
+              {convertedDate.toDateString()}: {d.completions}
+            </div>
+            <div>
+              {d.notes}
+            </div>
+          </li>
        })
     console.log("THIS.STATE UPON COMPLETIONS:", this.state)
     if(this.props.user){
