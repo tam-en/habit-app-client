@@ -67,14 +67,17 @@ class HabitDetail extends Component {
     });
     days = this.props.currentHabit.days.map((d) => {
     let convertedDate = new Date(d.date)
-       return <li>
-          <div>
-            {convertedDate.toDateString()}: {d.completions}
-          </div>
-          <div>
+       return <tr>
+          <td>
+            {convertedDate.toDateString()}
+          </td>
+          <td>
+            {d.completions}
+          </td>
+          <td>
             {d.notes}
-          </div>
-        </li>
+          </td>
+        </tr>
      })
     
     console.log("THIS.STATE UPON COMPLETIONS:", this.state)
@@ -99,12 +102,16 @@ class HabitDetail extends Component {
           </form>
           <hr />
           <h2>History Logs</h2>
-          <ul>
+          <table>
+            <tr>
+              <th>Date</th>
+              <th>Times completed</th> 
+              <th>Notes</th>
+            </tr>
             
-          {days}
+            {days}
 
-            
-          </ul>
+          </table>
           <hr />
           <button className="button" onClick={()=>{this.props.changeCurrent({})}}>go back to list of habits</button>
           <Router>

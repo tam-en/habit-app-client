@@ -26,6 +26,14 @@ strong {
   font-weight: 600;
 }
 
+table, th, td {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px 10px 0 10px;
+  text-align: left;
+}
+
 .pageGuts {
   display: grid;
   grid-template-rows: 300vh;
@@ -199,9 +207,7 @@ button:hover {
   margin: 5px 5px 5px 0;
   padding: 10px;
   background-image: linear-gradient(#D6D8F1, #F2F6FC);
-  /*background-color: #C2DBF1;*/
-/*  background-color: #F2F6FC;
-*/  border-bottom: 2px solid gray;
+  border-bottom: 2px solid gray;
   text-transform: lowercase;
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
@@ -210,9 +216,7 @@ button:hover {
 
 .habitContainer > button:hover {
     background-image: linear-gradient(#F2F6FC, #D6D8F1);
-
-/*  background-color: #A2CA96;  
-*/}
+}
 
 .habitTitle {
   font-size: 15px;
