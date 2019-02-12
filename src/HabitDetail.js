@@ -77,7 +77,7 @@ class HabitDetail extends Component {
             <input type="date" name="date" onChange={this.storeInput} value={this.state.date} />
           </div>
           <div>
-            <span><strong>  Times completed: </strong></span>
+            <span><strong>  Times habit completed on this date: </strong></span>
             <input name="completions" type="number" min="0" max="100" step="1"
             onChange={this.storeInput} value={this.state.completions} />
           </div>
@@ -98,7 +98,8 @@ class HabitDetail extends Component {
           <button className="button" onClick={()=>{this.props.changeCurrent({})}}>go back to list of habits</button>
           <Router>
             <div>
-              <Link className="somethingBuggy" to="/edit-habit">Edit This Habit</Link>
+            <br />
+              <Link className="button" to="/edit-habit">Edit This Habit</Link>
               <Route path="/edit-habit" component={() => (<EditHabitForm habit={this.props.habit} user={this.props.user} changeCurrent={this.props.changeCurrent} rerender={this.props.rerender} />)} />
             </div>
           </Router>

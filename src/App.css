@@ -6,6 +6,7 @@ brown = #663C12
 sky blue = #7AB0E2
 extra light blue = #C2DBF1
 extra light green = #A2CA96
+cloud shadow color = #D6D8F1
 */
 
 body {
@@ -36,6 +37,7 @@ strong {
   background-image: url("./images/traintrack_small.svg");
   background-repeat: repeat-y;
   background-size: 30px;
+  z-index: -11;
 }
 
 .container {
@@ -91,11 +93,11 @@ nav a {
 }
 
 nav a:hover {
-  color: #7AB0E2;
+  color: #569E3F;
 }
 
 nav a:focus {
-  color: #569E3F;
+  color: #1B5729;
 }
 
 h3 {
@@ -164,25 +166,26 @@ button,
   font-weight: 600;
   margin: 5px 5px 5px 0;
   padding: 7px 10px;
-  background-color: #C2DBF1;
+  background-color: #A2CA96;
   border-top: 1px solid gray;
   border-left: 1px solid gray;
   border-bottom: 1px solid gray;
   border-right: 1px solid gray;
+  border-radius: 4px;
   text-decoration: none;
   color: black;
 }
 
 input[type=submit]:hover {
-  background-color: #A2CA96;
+  background-color: #569E3F;
 }
 
 button:hover {
-  background-color: #A2CA96;
+  background-color: #569E3F;
 }
 
 .button:hover {
-  background-color: #A2CA96;
+  background-color: #569E3F;
 }
 
 .buttonLink {
@@ -195,16 +198,21 @@ button:hover {
   font-size: 16px;
   margin: 5px 5px 5px 0;
   padding: 10px;
-  background-color: #C2DBF1;
-  border-bottom: 2px solid gray;
+  background-image: linear-gradient(#D6D8F1, #F2F6FC);
+  /*background-color: #C2DBF1;*/
+/*  background-color: #F2F6FC;
+*/  border-bottom: 2px solid gray;
   text-transform: lowercase;
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
+  border-radius: 0px;
 }
 
 .habitContainer > button:hover {
-  background-color: #A2CA96;  
-}
+    background-image: linear-gradient(#F2F6FC, #D6D8F1);
+
+/*  background-color: #A2CA96;  
+*/}
 
 .habitTitle {
   font-size: 15px;
