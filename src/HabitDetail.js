@@ -61,17 +61,22 @@ class HabitDetail extends Component {
   render() {
     
     let today = new Date();
-    const days = this.props.currentHabit.days.map((d) => {
-      let convertedDate = new Date(d.date)
-         return <li>
-            <div>
-              {convertedDate.toDateString()}: {d.completions}
-            </div>
-            <div>
-              {d.notes}
-            </div>
-          </li>
-       })
+    let days = this.props.currentHabit.days
+    days.sort(function(a,b){
+      return new Date(b.date) - new Date(a.date);
+    });
+    days = this.props.currentHabit.days.map((d) => {
+    let convertedDate = new Date(d.date)
+       return <li>
+          <div>
+            {convertedDate.toDateString()}: {d.completions}
+          </div>
+          <div>
+            {d.notes}
+          </div>
+        </li>
+     })
+    
     console.log("THIS.STATE UPON COMPLETIONS:", this.state)
     if(this.props.user){
       return(
