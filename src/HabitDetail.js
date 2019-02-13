@@ -2,6 +2,32 @@ import React, { Component } from 'react';
 import SERVER_URL from './constants/server';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import EditHabitForm from './EditHabitForm';
+import {Bar} from 'react-chartjs-2';
+
+const BarGraph = (props) => {
+  const data = {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [
+      {
+        label: 'Habit Graph',
+        backgroundColor: 'rgba(255,99,132,0.2)',
+        borderColor: 'rgba(255,99,132,1)',
+        borderWidth: 1,
+        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+        hoverBorderColor: 'rgba(255,99,132,1)',
+        data: [1, 2, 3, 4, 5, 6, 7]
+      }
+    ]
+  };
+  return (
+    <div>
+        <Bar data={data} />
+    </div>
+  )
+ }
+
+
+
 
 class HabitDetail extends Component {
   constructor(props){
@@ -50,16 +76,17 @@ class HabitDetail extends Component {
     })
   }
 
+  
   storeInput = (e) => {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
-  
+
+   
   
 
   render() {
-    
     let today = new Date();
     let days = this.props.currentHabit.days
     days.sort(function(a,b){
@@ -79,7 +106,9 @@ class HabitDetail extends Component {
           </td>
         </tr>
      })
-    
+
+     
+     
     console.log("THIS.STATE UPON COMPLETIONS:", this.state)
     if(this.props.user){
       return(
@@ -101,6 +130,9 @@ class HabitDetail extends Component {
           <input type="submit" value="submit" />
           </form>
           <hr />
+          <div>
+          <BarGraph />
+          </div>
           <h2>History Logs</h2>
           <table>
             <tr>
@@ -132,6 +164,7 @@ class HabitDetail extends Component {
       );
   }
 }
+
 
 
 export default HabitDetail
